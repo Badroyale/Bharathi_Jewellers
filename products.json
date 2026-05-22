@@ -1,0 +1,90 @@
+[
+  {
+    "id": "prodDiamondRing",
+    "name": "Royal Diamond Bloom Ring",
+    "category": "rings",
+    "spec": "18K Gold • 1.25ct VVS1",
+    "badge": "Featured",
+    "image": "images/rings/diamond_ring.png",
+    "chips": ["18K White Gold", "1.25ct VVS1 Diamond", "E-F Color Solitaire", "GIA Certified"],
+    "desc": "A breathtaking brilliant-cut center solitaire diamond, surrounded beautifully by a floral halo of pavé-set diamonds on a polished platinum-alloy claw and 18K white gold band. A flawless testament to timeless commitement.",
+    "shortSpec": "18K Gold, 1.25ct VVS1 Diamond (4.1 grams)"
+  },
+  {
+    "id": "prodEmeraldNecklace",
+    "name": "Nizam Royal Emerald Choker",
+    "category": "necklaces",
+    "spec": "22K Gold • Colombian Emeralds",
+    "badge": "Exclusive",
+    "image": "images/necklaces/emerald_necklace.png",
+    "chips": ["22K Solid Gold", "5.4ct Colombian Emerald", "Natural Gemstones", "IGI Certified"],
+    "desc": "Inspired by rich royal Deccan heritage, this opulent choker features a central octagonal Colombian emerald drop, bordered with paved ideal-cut diamonds on hand-woven gold lace braids. A grand heirloom masterpiece.",
+    "shortSpec": "22K Solid Gold, Colombian Emerald & Diamonds (52.6 grams)"
+  },
+  {
+    "id": "prodGoldBangle",
+    "name": "Mayura Filigree Temple Kada",
+    "category": "bracelets",
+    "spec": "22K Gold • Antique Polish",
+    "badge": "Heritage",
+    "image": "images/bracelets/gold_bangle.png",
+    "chips": ["22K Hallmarked", "Handmade Filigree", "Set of 2 Kadas", "BIS 916 Certified"],
+    "desc": "A pair of magnificent antique-polished gold kadas, showcasing masterfully detailed peacock (Mayura) motifs in high-relief filigree carvings. Completed with custom hinge locks and matte gold detailing.",
+    "shortSpec": "22K Solid Hallmarked Gold - Set of 2 (45.2 grams)"
+  },
+  {
+    "id": "prodGoldBand",
+    "name": "Aditi Comfort Solid Gold Band",
+    "category": "rings",
+    "spec": "22K Gold • Mirror Polish",
+    "badge": "Classic",
+    "image": "images/rings/gold_band.png",
+    "chips": ["22K Solid Gold", "Comfort-Fit Bevel", "Unisex Style", "Mirror Finish"],
+    "desc": "A timeless comfort-fit band crafted in highly refined, pure 22-karat solid yellow gold. Formed with smooth domed surfaces and meticulously polished to a flawless mirror finish for premium daily wear.",
+    "shortSpec": "22K Solid Yellow Gold Comfort Band (6.8 grams)"
+  },
+  {
+    "id": "prodGoldChoker",
+    "name": "Lakshmi Temple Gold Necklace",
+    "category": "necklaces",
+    "spec": "22K Gold • Ruby Temple Set",
+    "badge": "Heritage",
+    "image": "images/necklaces/gold_choker.png",
+    "chips": ["22K Solid Gold", "Natural Rubies", "Temple Coin Work", "BIS 916 Certified"],
+    "desc": "A spectacular traditional temple neckpiece displaying highly detailed engravings of Goddess Lakshmi. Hand-set with deep natural Burmese rubies and dangling solid gold drop beads, reflecting rich cultural heritage.",
+    "shortSpec": "22K Solid Heavy Temple Gold Choker (74.8 grams)"
+  },
+  {
+    "id": "prodTennisBracelet",
+    "name": "Apsara Brilliant Tennis Bracelet",
+    "category": "bracelets",
+    "spec": "18K Gold • 6.4ct Diamonds",
+    "badge": "Pure Luxury",
+    "image": "images/bracelets/diamond_tennis.png",
+    "chips": ["18K White Gold", "6.4ct VVS Diamonds", "Ideal Round Cuts", "Secure Clasp"],
+    "desc": "A continuous, fluid stream of ideal-cut brilliant diamonds set seamlessly in a four-prong 18-karat white gold tennis link design. Radiates intense sparkling reflections with every movement.",
+    "shortSpec": "18K White Gold, 6.4ct VVS Diamond Line (16.2 grams)"
+  },
+  {
+    "id": "prodPolkiSet",
+    "name": "Rajkumari Bridal Heritage Set",
+    "category": "necklaces",
+    "spec": "22K Gold • Uncut Polki Diamonds",
+    "badge": "New Arrival",
+    "image": "images/necklaces/gold_choker.png",
+    "chips": ["22K Gold Base", "Genuine Polki Jewels", "South Sea Pearls", "Heritage Kundan"],
+    "desc": "An breathtaking heirloom ceremonial neckpiece showcasing large, raw uncut Polki diamonds set in a traditional Kundan foil base, detailed beautifully with rows of hand-strung natural South Sea pearls.",
+    "shortSpec": "22K Bridal Gold, Uncut Polki Diamonds & Pearls (85.4 grams)"
+  },
+  {
+    "id": "prodFiligreeRing",
+    "name": "Devi Filigree Gold Ring",
+    "category": "rings",
+    "spec": "22K Gold • Filigree Accent",
+    "badge": "Artisan Choice",
+    "image": "images/rings/gold_band.png",
+    "chips": ["22K Hallmarked", "Wire-woven Craft", "Matte Gold Accent", "BIS 916 Certified"],
+    "desc": "An antique-style cocktail statement ring hand-woven with fine 22K gold threads, forming detailed openwork floral panels. Designed for users who demand unique heritage styling.",
+    "shortSpec": "22K Gold Handmade Wire-filigree Ring (8.4 grams)"
+  }
+]
