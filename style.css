@@ -1560,6 +1560,23 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 2px;
 }
 
+.product-weight-badge {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(26, 26, 26, 0.78);
+  backdrop-filter: blur(4px);
+  color: #faf7f2;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 4px 8px;
+  border-radius: 4px;
+  z-index: 5;
+  pointer-events: none;
+  border: 1px solid rgba(201, 164, 74, 0.45);
+}
+
 .product-info {
   padding: 16px; /* Dense luxury padding */
   display: flex;
