@@ -18,6 +18,24 @@
     "shortSpec": "Premium 950 Platinum, Colombian Octagonal Emeralds (~4.5g base weight)"
   },
   {
+    "id": "prod_rings_10",
+    "name": "Kanak Hand-Carved Gold Ring",
+    "category": "rings",
+    "spec": "18K White Gold • South Sea Prls",
+    "badge": "Classic",
+    "image": "images/rings/r10.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "18K Elegant White Gold",
+      "White South Sea Pearls",
+      "BIS 916 Certified",
+      "12.6 Grams Base"
+    ],
+    "desc": "This stunning cocktail band showcases beautiful lustrous white south sea pearls accented seamlessly on a base of textured 18k elegant white gold. Sculpted by hand to assure optimal balance and comfortable, light finger presence.",
+    "shortSpec": "18K Elegant White Gold, Lustrous White South Sea Pearls (~12.6g base weight)"
+  },
+  {
     "id": "prod_rings_2",
     "name": "Imperial Polki Cocktail Ring",
     "category": "rings",
@@ -162,24 +180,6 @@
     "shortSpec": "22K Temple Matte Gold, Colombian Octagonal Emeralds (~11.7g base weight)"
   },
   {
-    "id": "prod_rings_10",
-    "name": "Kanak Hand-Carved Gold Ring",
-    "category": "rings",
-    "spec": "18K White Gold • South Sea Prls",
-    "badge": "Classic",
-    "image": "images/rings/r10.jpg",
-    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
-    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
-    "chips": [
-      "18K Elegant White Gold",
-      "White South Sea Pearls",
-      "BIS 916 Certified",
-      "12.6 Grams Base"
-    ],
-    "desc": "This stunning cocktail band showcases beautiful lustrous white south sea pearls accented seamlessly on a base of textured 18k elegant white gold. Sculpted by hand to assure optimal balance and comfortable, light finger presence.",
-    "shortSpec": "18K Elegant White Gold, Lustrous White South Sea Pearls (~12.6g base weight)"
-  },
-  {
     "id": "prod_necklaces_1",
     "name": "Nizam Royal Emerald Choker",
     "category": "necklaces",
@@ -196,6 +196,24 @@
     ],
     "desc": "Draping the neckline with supreme royalty, this necklace integrates wreathed braids of 22k temple matte gold around pristine traditional uncut polki diamonds drop points. Crafted as a grand heirloom highlight for standard-setting luxury.",
     "shortSpec": "22K Temple Matte Gold, Traditional Uncut Polki Diamonds (~42.0g base weight)"
+  },
+  {
+    "id": "prod_necklaces_10",
+    "name": "Aishwarya Diamond Wave Choker",
+    "category": "necklaces",
+    "spec": "18K Rose Gold • VVS Dms",
+    "badge": "Heritage",
+    "image": "images/necklaces/n10.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "18K Soft Rose Gold",
+      "Marquise Cut VVS Diamonds",
+      "BIS 916 Certified",
+      "67.2 Grams Base"
+    ],
+    "desc": "This custom-fit hasli collar integrates stylized peacock accents in hand-engraved 18k soft rose gold. Natural drop fine marquise cut vvs diamonds gems dangle fluidly, offering exquisite visual movement.",
+    "shortSpec": "18K Soft Rose Gold, Fine Marquise Cut VVS Diamonds (~67.2g base weight)"
   },
   {
     "id": "prod_necklaces_2",
@@ -342,24 +360,6 @@
     "shortSpec": "18K Elegant White Gold, Traditional Uncut Polki Diamonds (~64.4g base weight)"
   },
   {
-    "id": "prod_necklaces_10",
-    "name": "Aishwarya Diamond Wave Choker",
-    "category": "necklaces",
-    "spec": "18K Rose Gold • VVS Dms",
-    "badge": "Heritage",
-    "image": "images/necklaces/n10.jpg",
-    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
-    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
-    "chips": [
-      "18K Soft Rose Gold",
-      "Marquise Cut VVS Diamonds",
-      "BIS 916 Certified",
-      "67.2 Grams Base"
-    ],
-    "desc": "This custom-fit hasli collar integrates stylized peacock accents in hand-engraved 18k soft rose gold. Natural drop fine marquise cut vvs diamonds gems dangle fluidly, offering exquisite visual movement.",
-    "shortSpec": "18K Soft Rose Gold, Fine Marquise Cut VVS Diamonds (~67.2g base weight)"
-  },
-  {
     "id": "prod_bracelets_1",
     "name": "Apsara Brilliant Tennis Bracelet",
     "category": "bracelets",
@@ -376,6 +376,24 @@
     ],
     "desc": "A fluid, seamless stream of brilliant-cut natural untreated burmese rubies set beautifully in a secure 22k solid yellow gold line layout. Features a custom integrated clasp lock for absolute security and standard-setting wrist comfort.",
     "shortSpec": "22K Solid Yellow Gold, Natural Untreated Burmese Rubies (~25.0g base weight)"
+  },
+  {
+    "id": "prod_bracelets_10",
+    "name": "Vedic Sanskrit Engraved Kada",
+    "category": "bracelets",
+    "spec": "18K Champagne Gold • Ceylon Saph",
+    "badge": "Featured",
+    "image": "images/bracelets/b10.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "18K Champagne Gold",
+      "Royal Blue Ceylon Sapphires",
+      "BIS 916 Certified",
+      "42.1 Grams Base"
+    ],
+    "desc": "This highly durable link chain bracelet displays pristine royal blue ceylon sapphires charms draping elegantly from heavy 18k champagne gold loops. A beautiful touch of everyday luxury.",
+    "shortSpec": "18K Champagne Gold, Royal Blue Ceylon Sapphires (~42.1g base weight)"
   },
   {
     "id": "prod_bracelets_2",
@@ -522,24 +540,6 @@
     "shortSpec": "22K Antique Polished Gold, Natural Untreated Burmese Rubies (~40.2g base weight)"
   },
   {
-    "id": "prod_bracelets_10",
-    "name": "Vedic Sanskrit Engraved Kada",
-    "category": "bracelets",
-    "spec": "18K Champagne Gold • Ceylon Saph",
-    "badge": "Featured",
-    "image": "images/bracelets/b10.jpg",
-    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
-    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
-    "chips": [
-      "18K Champagne Gold",
-      "Royal Blue Ceylon Sapphires",
-      "BIS 916 Certified",
-      "42.1 Grams Base"
-    ],
-    "desc": "This highly durable link chain bracelet displays pristine royal blue ceylon sapphires charms draping elegantly from heavy 18k champagne gold loops. A beautiful touch of everyday luxury.",
-    "shortSpec": "18K Champagne Gold, Royal Blue Ceylon Sapphires (~42.1g base weight)"
-  },
-  {
     "id": "prod_bangles_1",
     "name": "Mayura Filigree Temple Kada",
     "category": "bangles",
@@ -556,6 +556,24 @@
     ],
     "desc": "A spectacular hand-sculptly Kada Bangle crafted in certified 22k solid yellow gold. Detailed with traditional repoussé carvings and hand-inlaid colombian octagonal emeralds motifs, finished with a discreet side-hinge lock mechanism.",
     "shortSpec": "22K Solid Yellow Gold, Colombian Octagonal Emeralds (~25.0g base weight)"
+  },
+  {
+    "id": "prod_bangles_10",
+    "name": "Devi Ruby Accent Bangles",
+    "category": "bangles",
+    "spec": "18K Champagne Gold • South Sea Prls",
+    "badge": "Classic",
+    "image": "images/bangles/fb02abd145d76933cf424709522fbeeb.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "18K Champagne Gold",
+      "White South Sea Pearls",
+      "BIS 916 Certified",
+      "42.1 Grams Base"
+    ],
+    "desc": "These luxury bangles showcase alternating bands of raw gold texture and brilliant row settings of lustrous white south sea pearls. An exquisite testament to generational hand-craftsmanship.",
+    "shortSpec": "18K Champagne Gold, Lustrous White South Sea Pearls (~42.1g base weight)"
   },
   {
     "id": "prod_bangles_2",
@@ -702,24 +720,6 @@
     "shortSpec": "22K Antique Polished Gold, Colombian Octagonal Emeralds (~40.2g base weight)"
   },
   {
-    "id": "prod_bangles_10",
-    "name": "Devi Ruby Accent Bangles",
-    "category": "bangles",
-    "spec": "18K Champagne Gold • South Sea Prls",
-    "badge": "Classic",
-    "image": "images/bangles/fb02abd145d76933cf424709522fbeeb.jpg",
-    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
-    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
-    "chips": [
-      "18K Champagne Gold",
-      "White South Sea Pearls",
-      "BIS 916 Certified",
-      "42.1 Grams Base"
-    ],
-    "desc": "These luxury bangles showcase alternating bands of raw gold texture and brilliant row settings of lustrous white south sea pearls. An exquisite testament to generational hand-craftsmanship.",
-    "shortSpec": "18K Champagne Gold, Lustrous White South Sea Pearls (~42.1g base weight)"
-  },
-  {
     "id": "prod_earrings_1",
     "name": "Kanak Kundan Drop Jhumkas",
     "category": "earrings",
@@ -736,6 +736,24 @@
     ],
     "desc": "Stunning jhumka drops hand-finished in 22k antique polished gold. Rows of tiny seed pearls and premium colombian octagonal emeralds dangle beautifully, dancing gracefully with every movement to frame the face in soft light.",
     "shortSpec": "22K Antique Polished Gold, Colombian Octagonal Emeralds (~12.0g base weight)"
+  },
+  {
+    "id": "prod_earrings_10",
+    "name": "Mughal Heritage Kundan Drops",
+    "category": "earrings",
+    "spec": "950 Platinum • South Sea Prls",
+    "badge": "Popular",
+    "image": "images/earrings/mughal_kundan_drops.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "Premium 950 Platinum",
+      "White South Sea Pearls",
+      "BIS 916 Certified",
+      "19.2 Grams Base"
+    ],
+    "desc": "Delicate filigree drop earrings hand-burnished in premium 950 platinum. Adorned with natural marquise-cut lustrous white south sea pearls details, delivering an elegant highlight of premium luxury.",
+    "shortSpec": "Premium 950 Platinum, Lustrous White South Sea Pearls (~19.2g base weight)"
   },
   {
     "id": "prod_earrings_2",
@@ -882,22 +900,40 @@
     "shortSpec": "18K Champagne Gold, Colombian Octagonal Emeralds (~18.4g base weight)"
   },
   {
-    "id": "prod_earrings_10",
-    "name": "Mughal Heritage Kundan Drops",
+    "id": "prod_earrings_missing_3",
+    "name": "Diamond earrings",
     "category": "earrings",
-    "spec": "950 Platinum • South Sea Prls",
-    "badge": "Popular",
-    "image": "images/earrings/mughal_kundan_drops.png",
+    "spec": "18K Rose Gold • VVS Diamonds",
+    "badge": "New Arrival",
+    "image": "images/earrings/diamond_earrings.png",
     "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
-    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
     "chips": [
-      "Premium 950 Platinum",
-      "White South Sea Pearls",
+      "18K Soft Rose Gold",
+      "Marquise Cut VVS Diamonds",
       "BIS 916 Certified",
-      "19.2 Grams Base"
+      "11.5 Grams Base"
     ],
-    "desc": "Delicate filigree drop earrings hand-burnished in premium 950 platinum. Adorned with natural marquise-cut lustrous white south sea pearls details, delivering an elegant highlight of premium luxury.",
-    "shortSpec": "Premium 950 Platinum, Lustrous White South Sea Pearls (~19.2g base weight)"
+    "desc": "An absolute marvel of craftsmanship, framing diamond earrings with elite hand-finishing and pristine materials. Authenticated and certified by Bharathi showroom curators.",
+    "shortSpec": "18K Rose Gold • VVS Diamonds (~11.5 Grams Base)"
+  },
+  {
+    "id": "prod_earrings_missing_4",
+    "name": "Kundan jhumkas",
+    "category": "earrings",
+    "spec": "18K Rose Gold • VVS Diamonds",
+    "badge": "New Arrival",
+    "image": "images/earrings/kundan_jhumkas.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "18K Soft Rose Gold",
+      "Marquise Cut VVS Diamonds",
+      "BIS 916 Certified",
+      "11.5 Grams Base"
+    ],
+    "desc": "An absolute marvel of craftsmanship, framing kundan jhumkas with elite hand-finishing and pristine materials. Authenticated and certified by Bharathi showroom curators.",
+    "shortSpec": "18K Rose Gold • VVS Diamonds (~11.5 Grams Base)"
   },
   {
     "id": "prod_chains_1",
@@ -916,6 +952,24 @@
     ],
     "desc": "A masterfully woven rope chain crafted meticulously in certified 18k elegant white gold. Buffed to a magnificent mirror shine to capture and reflect light with clean daily wear durability.",
     "shortSpec": "18K Elegant White Gold, Ideal Cut VVS1 Solitaire Diamonds (~18.0g base weight)"
+  },
+  {
+    "id": "prod_chains_10",
+    "name": "Mayura Delicate Figarope Chain",
+    "category": "chains",
+    "spec": "22K Solid Gold • Burmese Rub",
+    "badge": "Featured",
+    "image": "images/chains/c5ceb7c2dfe5b81b7ace6fe65fd0b4a9.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "22K Solid Yellow Gold",
+      "Natural Burmese Rubies",
+      "BIS 916 Certified",
+      "31.5 Grams Base"
+    ],
+    "desc": "A classic double-loop curb chain forged in heavy 22k solid yellow gold. Buffed to a rich, warm champagne gold gloss that layers beautifully with premium showroom pendants.",
+    "shortSpec": "22K Solid Yellow Gold, Natural Untreated Burmese Rubies (~31.5g base weight)"
   },
   {
     "id": "prod_chains_2",
@@ -1062,24 +1116,6 @@
     "shortSpec": "18K Soft Rose Gold, Ideal Cut VVS1 Solitaire Diamonds (~30.0g base weight)"
   },
   {
-    "id": "prod_chains_10",
-    "name": "Mayura Delicate Figarope Chain",
-    "category": "chains",
-    "spec": "22K Solid Gold • Burmese Rub",
-    "badge": "Featured",
-    "image": "images/chains/c5ceb7c2dfe5b81b7ace6fe65fd0b4a9.jpg",
-    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
-    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
-    "chips": [
-      "22K Solid Yellow Gold",
-      "Natural Burmese Rubies",
-      "BIS 916 Certified",
-      "31.5 Grams Base"
-    ],
-    "desc": "A classic double-loop curb chain forged in heavy 22k solid yellow gold. Buffed to a rich, warm champagne gold gloss that layers beautifully with premium showroom pendants.",
-    "shortSpec": "22K Solid Yellow Gold, Natural Untreated Burmese Rubies (~31.5g base weight)"
-  },
-  {
     "id": "prod_pendants_1",
     "name": "Ganesha Bas-Relief Gold Medallion",
     "category": "pendants",
@@ -1096,6 +1132,24 @@
     ],
     "desc": "An auspicious round medallion depicting a sacred icon in soft matte antique 22k solid yellow gold. Bordered beautifully with a micro-beaded filigree frame and sparkling traditional uncut polki diamonds drops.",
     "shortSpec": "22K Solid Yellow Gold, Traditional Uncut Polki Diamonds (~4.5g base weight)"
+  },
+  {
+    "id": "prod_pendants_10",
+    "name": "Brilliant Halo Round Diamond Pendant",
+    "category": "pendants",
+    "spec": "18K Champagne Gold • VVS Dms",
+    "badge": "Classic",
+    "image": "images/pendants/diamond_halo_pendant.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "18K Champagne Gold",
+      "Marquise Cut VVS Diamonds",
+      "BIS 916 Certified",
+      "12.6 Grams Base"
+    ],
+    "desc": "This hand-beaten gold coin pendant features the Goddess Lakshmi in bas-relief matte 18k champagne gold, rimmed by high-brilliance round fine marquise cut vvs diamonds stones.",
+    "shortSpec": "18K Champagne Gold, Fine Marquise Cut VVS Diamonds (~12.6g base weight)"
   },
   {
     "id": "prod_pendants_2",
@@ -1242,21 +1296,219 @@
     "shortSpec": "22K Antique Polished Gold, Traditional Uncut Polki Diamonds (~11.7g base weight)"
   },
   {
-    "id": "prod_pendants_10",
-    "name": "Brilliant Halo Round Diamond Pendant",
-    "category": "pendants",
-    "spec": "18K Champagne Gold • VVS Dms",
+    "id": "prod_anklets_missing_1",
+    "name": "Gold anklet",
+    "category": "anklets",
+    "spec": "22K Solid Gold • Basra Pearls",
+    "badge": "New Arrival",
+    "image": "images/anklets/gold_anklet.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "22K Pure Yellow Gold",
+      "Lustrous Basra Pearls",
+      "BIS 916 Certified",
+      "15.0 Grams Base"
+    ],
+    "desc": "An absolute marvel of craftsmanship, framing gold anklet with elite hand-finishing and pristine materials. Authenticated and certified by Bharathi showroom curators.",
+    "shortSpec": "22K Solid Gold • Basra Pearls (~15.0 Grams Base)"
+  },
+  {
+    "id": "prod_nose_pins_missing_5",
+    "name": "Gold nose pin",
+    "category": "nose-pins",
+    "spec": "18K Champagne Gold • VVS Solitaire",
+    "badge": "New Arrival",
+    "image": "images/nose_pins/gold_nose_pin.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "18K Champagne Gold",
+      "Ideal Cut VVS Solitaire",
+      "BIS 916 Certified",
+      "1.2 Grams Base"
+    ],
+    "desc": "An absolute marvel of craftsmanship, framing gold nose pin with elite hand-finishing and pristine materials. Authenticated and certified by Bharathi showroom curators.",
+    "shortSpec": "18K Champagne Gold • VVS Solitaire (~1.2 Grams Base)"
+  },
+  {
+    "id": "prod_bridal_sets_missing_2",
+    "name": "Bridal set",
+    "category": "bridal-sets",
+    "spec": "18K White Gold • GIA Diamonds",
+    "badge": "New Arrival",
+    "image": "images/bridal_sets/bridal_set.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "18K Elegant White Gold",
+      "GIA Certified VVS Diamonds",
+      "BIS 916 Certified",
+      "85.0 Grams Base"
+    ],
+    "desc": "An absolute marvel of craftsmanship, framing bridal set with elite hand-finishing and pristine materials. Authenticated and certified by Bharathi showroom curators.",
+    "shortSpec": "18K White Gold • GIA Diamonds (~85.0 Grams Base)"
+  },
+  {
+    "id": "prod_bridal_sets_bs2",
+    "name": "Mayura Heritage Bridal Set",
+    "category": "bridal-sets",
+    "spec": "22K Solid Gold • Basra Pearls & Rubies",
+    "badge": "Featured",
+    "image": "images/bridal_sets/bs2.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "22K Antique Yellow Gold",
+      "Natural Burmese Rubies",
+      "Fine Basra Pearls",
+      "110.5 Grams Base"
+    ],
+    "desc": "A breathtaking heritage bridal creation detailing sacred peacock motifs in solid 22k gold, adorned with shimmering natural burmese rubies and cascading premium basra pearls. Truly a magnificent masterpiece for standard royal weddings.",
+    "shortSpec": "22K Solid Gold • Basra Pearls & Rubies (~110.5 Grams Base)"
+  },
+  {
+    "id": "prod_bridal_sets_bs3",
+    "name": "Kalyan Royal Diamond Bridal Choker Set",
+    "category": "bridal-sets",
+    "spec": "18K White Gold • VVS Diamonds",
     "badge": "Classic",
-    "image": "images/pendants/diamond_halo_pendant.png",
+    "image": "images/bridal_sets/bs3.jpg",
     "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
     "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
     "chips": [
-      "18K Champagne Gold",
-      "Marquise Cut VVS Diamonds",
-      "BIS 916 Certified",
-      "12.6 Grams Base"
+      "18K White Gold Base",
+      "Uncut Polki & Brilliant Diamonds",
+      "BIS 916 Hallmarked",
+      "95.2 Grams Base"
     ],
-    "desc": "This hand-beaten gold coin pendant features the Goddess Lakshmi in bas-relief matte 18k champagne gold, rimmed by high-brilliance round fine marquise cut vvs diamonds stones.",
-    "shortSpec": "18K Champagne Gold, Fine Marquise Cut VVS Diamonds (~12.6g base weight)"
+    "desc": "This elite diamond choker set wraps the neck in brilliant, closely set GIA certified diamonds. Perfect for modern high-society receptions and crafted to project maximum sparkle under ballroom lights.",
+    "shortSpec": "18K White Gold • VVS Diamonds (~95.2 Grams Base)"
+  },
+  {
+    "id": "prod_bridal_sets_bs4",
+    "name": "Devi Temple Antique Bridal Set",
+    "category": "bridal-sets",
+    "spec": "22K Solid Gold • Kemp Stone Accents",
+    "badge": "Popular",
+    "image": "images/bridal_sets/bs4.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #F9F6F0, #EFECE6)",
+    "chips": [
+      "22K Solid Temple Gold",
+      "Traditional Kemp Stones",
+      "Temple Carved Motifs",
+      "125.0 Grams Base"
+    ],
+    "desc": "Inspired by historical South Indian temple sculptures, this solid 22k gold set displays hand-carved divine forms surrounded by intense traditional kemp stones and premium solid gold beads.",
+    "shortSpec": "22K Solid Gold • Kemp Stone Accents (~125.0 Grams Base)"
+  },
+  {
+    "id": "prod_bridal_sets_bs5",
+    "name": "Vasundhara Polki Kundan Set",
+    "category": "bridal-sets",
+    "spec": "22K Gold Plated • Polki & Kundan Glass",
+    "badge": "Heritage",
+    "image": "images/bridal_sets/bs5.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "22K Kundan Setting",
+      "Intricate Meenakari backing",
+      "Precious Uncut Gemstones",
+      "140.0 Grams Base"
+    ],
+    "desc": "Showcasing immaculate Rajasthani Kundan settings with rich Meenakari hand-painted detailing on the back. Adorned with premium uncut polki diamonds that shimmer with deep vintage glow.",
+    "shortSpec": "22K Gold Plated • Polki & Kundan Glass (~140.0 Grams Base)"
+  },
+  {
+    "id": "prod_bridal_sets_bs6",
+    "name": "Aura Radiant Platinum Diamond Set",
+    "category": "bridal-sets",
+    "spec": "950 Platinum • Marquise Cut Diamonds",
+    "badge": "Exclusive",
+    "image": "images/bridal_sets/bs6.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "950 Pure Platinum",
+      "Marquise & Pear VVS Diamonds",
+      "GIA Certified",
+      "80.4 Grams Base"
+    ],
+    "desc": "A breathtaking high-modern premium platinum set that cascades along the collarbone. Features peerless, certified brilliant pear and marquise cut diamonds for ultimate contemporary luxury.",
+    "shortSpec": "950 Platinum • Marquise Cut Diamonds (~80.4 Grams Base)"
+  },
+  {
+    "id": "prod_bridal_sets_bs7",
+    "name": "Chidambaram Antique Nakshi Set",
+    "category": "bridal-sets",
+    "spec": "22K Solid Gold • Hand-Crafted Nakshi",
+    "badge": "Classic",
+    "image": "images/bridal_sets/bs7.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF5F5, #F0E6E6)",
+    "chips": [
+      "22K Antique Nakshi",
+      "Divine Iconography",
+      "BIS 916 Hallmarked",
+      "118.0 Grams Base"
+    ],
+    "desc": "Immaculate hand-beaten gold detailing portraying sacred celestial scenes. An antique-polished heirloom masterpiece that defines royal lineage and timeless Southern elegance.",
+    "shortSpec": "22K Solid Gold • Hand-Crafted Nakshi (~118.0 Grams Base)"
+  },
+  {
+    "id": "prod_bridal_sets_bs8",
+    "name": "Rajkumari Emerald Layered Haar Set",
+    "category": "bridal-sets",
+    "spec": "22K Solid Gold • Colombian Emerald Layers",
+    "badge": "Best Seller",
+    "image": "images/bridal_sets/bs8.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "22K Gold Layers",
+      "Vibrant Colombian Emeralds",
+      "GIA Certified Gems",
+      "135.2 Grams Base"
+    ],
+    "desc": "Four rows of immaculate, hand-selected vibrant Colombian emerald beads linked by ornate 22k gold medallions. Completed with an oversized central pendant that commands absolute royal presence.",
+    "shortSpec": "22K Solid Gold • Colombian Emerald Layers (~135.2 Grams Base)"
+  },
+  {
+    "id": "prod_bridal_sets_bs9",
+    "name": "Imperial Polki Guttapusalu Set",
+    "category": "bridal-sets",
+    "spec": "22K Solid Gold • Bunches of Rice Pearls",
+    "badge": "Trending",
+    "image": "images/bridal_sets/bs9.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #F9F6F0, #EFECE6)",
+    "chips": [
+      "Heritage Guttapusalu Style",
+      "Bunches of Rice Pearls",
+      "BIS Certified 916 Gold",
+      "102.8 Grams Base"
+    ],
+    "desc": "A traditional masterpiece representing the coastal Telugu heritage. Features heavy clusters of pristine rice pearls set on a crescent-gold base accented with uncut diamonds and precious rubies.",
+    "shortSpec": "22K Solid Gold • Bunches of Rice Pearls (~102.8 Grams Base)"
+  },
+  {
+    "id": "prod_bridal_sets_bs10",
+    "name": "Valkyrie Platinum Solitaire Set",
+    "category": "bridal-sets",
+    "spec": "950 Platinum • Cushion Cut Diamonds",
+    "badge": "Exclusive",
+    "image": "images/bridal_sets/bs10.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "Premium 950 Platinum",
+      "Flawless Cushion Solitaires",
+      "Modern Minimalist Bridal",
+      "88.6 Grams Base"
+    ],
+    "desc": "Designed for the ultra-modern bride who demands minimalist excellence. Set in pure platinum, housing large, cushion-cut GIA-certified diamond solitaires that deliver unparalleled luxury refraction.",
+    "shortSpec": "950 Platinum • Cushion Cut Diamonds (~88.6 Grams Base)"
   }
 ]

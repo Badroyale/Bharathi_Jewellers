@@ -6,14 +6,813 @@
   <title>Exquisite Jewelry Showroom Catalog | Bharathi Jewellers</title>
   <meta name="description" content="Explore our premium hand-finished solid gold and high-grade diamond catalog. Inquire instantly about rings, gold necklaces, chokers, and diamond bracelets.">
   
-  <!-- CSS Stylesheet -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Typography & Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* === DESIGN SYSTEM & GLOBAL RESETS === */
+    :root {
+      --color-primary-bg: #faf7f2;       /* Cream/Ivory background */
+      --color-dark-bg: #1a1a1a;          /* Deep charcoal primary dark */
+      --color-dark-card: #252525;        /* Dark card background */
+      --color-accent-gold: #c9a44a;      /* Rich warm gold primary */
+      --color-nav-scrolled: #0d0d0d;     /* Deep black for navbar scroll */
+      --color-text-dark: #2a2a2a;        /* High-contrast charcoal text */
+      --color-text-muted: #5a4a35;       /* Muted warm tone */
+      --color-text-light: #ffffff;
+      --color-text-light-muted: #a89070; /* Muted gold tone */
+      --color-divider-gold: rgba(201, 164, 74, 0.4);
+      
+      --font-headings: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Jost', sans-serif;
+      
+      --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --transition-zoom: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--color-primary-bg);
+      color: var(--color-text-dark);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.625;
+      letter-spacing: 0.02em;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Typography Defaults */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-headings);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition-smooth);
+      cursor: pointer;
+    }
+
+    button {
+      font-family: var(--font-body);
+      cursor: pointer;
+      border: none;
+      background: none;
+      transition: var(--transition-smooth);
+    }
+
+    /* Common Components & Utilities */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+    }
+
+    .container-wide {
+      max-width: 1680px;
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+    }
+
+    .section-padding {
+      padding: 100px 0;
+    }
+
+    @media (max-width: 768px) {
+      .section-padding {
+        padding: 60px 0;
+      }
+    }
+
+    .gold-divider {
+      height: 1px;
+      background-color: var(--color-accent-gold);
+      opacity: 0.4;
+      width: 60px;
+      margin: 24px auto;
+    }
+
+    /* === SITE HEADER & NAVIGATION === */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: var(--transition-smooth);
+      background-color: transparent;
+    }
+
+    .site-header.scrolled {
+      background-color: var(--color-nav-scrolled);
+      border-bottom: 1px solid rgba(201, 164, 74, 0.15);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .gold-top-bar {
+      background-color: var(--color-accent-gold);
+      height: 3px;
+      width: 100%;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 24px;
+      transition: var(--transition-smooth);
+    }
+
+    .site-header.scrolled .header-container {
+      padding: 12px 24px;
+    }
+
+    /* Brand Logo */
+    .logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .logo-main {
+      font-family: var(--font-headings);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--color-accent-gold);
+    }
+
+    .logo-sub {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      color: var(--color-text-light-muted);
+      margin-top: 2px;
+    }
+
+    /* Navigation Links */
+    .nav-menu {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-link {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: uppercase;
+      padding: 8px 0;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: var(--color-accent-gold);
+    }
+
+    .nav-link.active {
+      color: var(--color-accent-gold);
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--color-accent-gold);
+    }
+
+    /* Hamburger Button */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 24px;
+      height: 18px;
+      z-index: 1010;
+    }
+
+    .hamburger span {
+      width: 100%;
+      height: 2px;
+      background-color: var(--color-accent-gold);
+      transition: var(--transition-smooth);
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+      .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--color-dark-bg);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+        transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        z-index: 1005;
+      }
+      .nav-menu.open {
+        right: 0;
+      }
+      .nav-link {
+        font-size: 16px;
+        color: #ffffff;
+      }
+      .hamburger.open span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      .hamburger.open span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.open span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+    }
+
+    /* === PAGE HERO HEADER === */
+    .page-header {
+      position: relative;
+      height: 350px;
+      background-color: var(--color-dark-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      padding-top: 50px;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: repeating-linear-gradient(45deg, rgba(201, 164, 74, 0.02) 0px, rgba(201, 164, 74, 0.02) 2px, transparent 2px, transparent 10px);
+      z-index: 1;
+    }
+
+    .page-header-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .page-header h1 {
+      font-family: var(--font-headings);
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 300;
+      color: #ffffff;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .breadcrumbs {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      color: var(--color-accent-gold);
+      text-transform: uppercase;
+    }
+
+    .breadcrumbs a {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .breadcrumbs a:hover {
+      color: var(--color-accent-gold);
+    }
+
+    /* === FILTER BAR PILLS === */
+    .products-filter-section {
+      position: sticky;
+      top: 60px; /* Sits perfectly below the compressed header with no gap */
+      z-index: 99;
+      background-color: var(--color-primary-bg);
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(201, 164, 74, 0.12);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+      transition: var(--transition-smooth);
+    }
+
+    .filter-wrapper {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--color-accent-gold);
+      background-color: transparent;
+      color: var(--color-accent-gold);
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      transition: var(--transition-smooth);
+      border-radius: 20px; /* Pill tabs */
+      white-space: nowrap;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background-color: var(--color-accent-gold);
+      color: #1a1a1a;
+    }
+
+    @media (max-width: 768px) {
+      .products-filter-section {
+        top: 46px; /* Sits perfectly below the mobile header with no gap */
+        padding: 12px 0;
+      }
+      .filter-wrapper {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 4px 16px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Hide standard Firefox scrollbar */
+      }
+      .filter-wrapper::-webkit-scrollbar {
+        display: none; /* Hide Chrome/Safari scrollbar */
+      }
+    }
+
+    /* === SEARCH & SORT CONTROLS PANEL === */
+    .catalog-controls-section {
+      background-color: var(--color-primary-bg);
+      padding: 0 0 40px 0;
+    }
+
+    .catalog-controls-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      border-bottom: 1px solid #e8ddd0;
+      padding-bottom: 30px;
+    }
+
+    @media (max-width: 600px) {
+      .catalog-controls-container {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+
+    .search-box-wrapper {
+      position: relative;
+      flex-grow: 1;
+      max-width: 500px;
+    }
+
+    #catalogSearchInput {
+      width: 100%;
+      background: #ffffff;
+      border: 1px solid #e8ddd0;
+      padding: 12px 40px 12px 16px;
+      font-family: var(--font-body);
+      font-size: 13.5px;
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+
+    #catalogSearchInput:focus {
+      border-color: var(--color-accent-gold);
+      box-shadow: 0 4px 12px rgba(201, 164, 74, 0.05);
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--color-accent-gold);
+      display: flex;
+      align-items: center;
+    }
+
+    .sort-box-wrapper select {
+      background: #ffffff;
+      border: 1px solid #e8ddd0;
+      padding: 12px 36px 12px 16px;
+      font-family: var(--font-body);
+      font-size: 13.5px;
+      outline: none;
+      color: var(--color-text-dark);
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c9a44a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      background-size: 12px;
+      transition: var(--transition-smooth);
+    }
+
+    .sort-box-wrapper select:focus {
+      border-color: var(--color-accent-gold);
+    }
+
+    /* === CATALOG GRID & PRODUCT CARDS === */
+    .catalog-section {
+      background-color: var(--color-primary-bg);
+      padding: 0 0 100px 0;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 1200px) {
+      .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Product Card */
+    .product-card {
+      background-color: #ffffff;
+      border: 1px solid #e8ddd0;
+      transition: var(--transition-smooth);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .product-card.show {
+      animation: fadeInCard 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+    }
+
+    .product-card.hide {
+      display: none !important;
+    }
+
+    @keyframes fadeInCard {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .product-card:hover {
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+      border-color: var(--color-accent-gold);
+    }
+
+    .product-img-container {
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #ffffff;
+    }
+
+    .product-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition-zoom);
+    }
+
+    .product-card:hover .product-card-img {
+      transform: scale(1.04);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: var(--color-dark-bg);
+      color: var(--color-accent-gold);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      z-index: 10;
+    }
+
+
+
+    .product-info {
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .product-category {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: var(--color-text-light-muted);
+      text-transform: uppercase;
+    }
+
+    .product-spec {
+      font-family: var(--font-body);
+      font-size: 11px;
+      color: #999999;
+    }
+
+    .product-info h3 {
+      font-family: var(--font-headings);
+      font-size: 22px;
+      font-weight: 500;
+      color: #1a1a1a;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .product-specs-chips {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .spec-chip {
+      background-color: #faf7f2;
+      border: 1px solid #e8ddd0;
+      font-family: var(--font-body);
+      font-size: 10px;
+      color: var(--color-text-muted);
+      padding: 4px 10px;
+      letter-spacing: 0.02em;
+    }
+
+    .card-action-bar {
+      border-top: 1px solid #e8ddd0;
+      padding-top: 16px;
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .price-poa {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-accent-gold);
+    }
+
+    .card-inquiry-link {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent-gold);
+      border-bottom: 1px dashed rgba(201, 164, 74, 0.4);
+      padding-bottom: 2px;
+      display: inline-flex;
+      align-items: center;
+      transition: var(--transition-smooth);
+      cursor: pointer;
+    }
+
+    .card-inquiry-link:hover {
+      color: var(--color-text-dark);
+      border-bottom-color: var(--color-text-dark);
+    }
+
+    /* === PREMIUM FOOTER === */
+    .site-footer {
+      background-color: #111111;
+      color: #888888;
+      border-top: 1px solid rgba(201, 164, 74, 0.3);
+      padding-top: 80px;
+      position: relative;
+    }
+
+    .footer-top {
+      padding-bottom: 60px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr 0.8fr 1fr;
+      gap: 40px;
+    }
+
+    @media (max-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    .footer-brand p {
+      font-size: 13px;
+      line-height: 1.625;
+      margin: 20px 0;
+    }
+
+    .footer-title {
+      font-family: var(--font-headings);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-accent-gold);
+      margin-bottom: 24px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: #888888;
+      transition: var(--transition-smooth);
+    }
+
+    .footer-links a:hover {
+      color: var(--color-accent-gold);
+      padding-left: 4px;
+    }
+
+    .footer-contact {
+      list-style: none;
+    }
+
+    .footer-contact li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 16px;
+      font-size: 13px;
+    }
+
+    .footer-contact li svg {
+      color: var(--color-accent-gold);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(201, 164, 74, 0.3);
+      color: var(--color-accent-gold);
+      transition: var(--transition-smooth);
+    }
+
+    .social-icon:hover {
+      background-color: var(--color-accent-gold);
+      color: #111111;
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 30px 0;
+      text-align: center;
+    }
+
+    .footer-bottom p {
+      font-size: 12px;
+      color: #555555;
+    }
+
+    .owner-login-subtle {
+      font-size: 11px;
+      color: #333333;
+      text-decoration: none;
+      margin-left: 10px;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .owner-login-subtle:hover {
+      color: #555555;
+    }
+
+    /* === SCROLL TO TOP BUTTON === */
+    .scroll-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--color-accent-gold);
+      background-color: rgba(26, 26, 26, 0.95);
+      color: var(--color-accent-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition-smooth);
+      z-index: 999;
+      cursor: pointer;
+    }
+
+    .scroll-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .scroll-to-top:hover {
+      background-color: var(--color-accent-gold);
+      color: #1a1a1a;
+      transform: translateY(-3px);
+    }
+
+
+
+
+  </style>
 </head>
 <body>
 
+  <!-- Thin gold top bar above navbar -->
+  <div class="gold-top-bar"></div>
+
   <!-- --- 1. SITE HEADER (STICKY NAVIGATION) --- -->
   <header class="site-header" id="siteHeader">
-    <div class="container header-container">
+    <div class="container-wide header-container">
       <a href="index.html" class="logo" id="logoLink">
         <span class="logo-main">Bharathi</span>
         <span class="logo-sub">Jewellers</span>
@@ -36,7 +835,6 @@
 
   <!-- --- 2. PAGE HERO HEADER --- -->
   <section class="page-header" id="pageHeader">
-    <div class="page-header-bg"></div>
     <div class="page-header-content">
       <h1>The Showroom Catalog</h1>
       <div class="breadcrumbs">
@@ -47,7 +845,7 @@
 
   <!-- --- 3. DYNAMIC CATEGORIES FILTER BAR (STICKY & SCROLLABLE) --- -->
   <section class="products-filter-section" id="filterSection">
-    <div class="container">
+    <div class="container-wide">
       <div class="filter-wrapper">
         <button class="filter-btn active" data-filter="all">All Showcase</button>
         <button class="filter-btn" data-filter="rings">Rings</button>
@@ -57,22 +855,52 @@
         <button class="filter-btn" data-filter="earrings">Earrings</button>
         <button class="filter-btn" data-filter="chains">Chains</button>
         <button class="filter-btn" data-filter="pendants">Pendants</button>
+        <button class="filter-btn" data-filter="anklets">Anklets</button>
+        <button class="filter-btn" data-filter="nose-pins">Nose Pins</button>
+        <button class="filter-btn" data-filter="bridal-sets">Bridal Sets</button>
       </div>
     </div>
   </section>
 
+  <!-- --- 3.5 SMART SEARCH & SORTING PANEL --- -->
+  <section class="catalog-controls-section">
+    <div class="container-wide catalog-controls-container">
+      <div class="search-box-wrapper">
+        <input type="text" id="catalogSearchInput" placeholder="Search Masterpieces...">
+        <span class="search-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </span>
+      </div>
+      <div class="sort-box-wrapper">
+        <select id="catalogSortSelect">
+          <option value="featured">Featured Selections</option>
+          <option value="name-asc">Alphabetical (A - Z)</option>
+          <option value="name-desc">Alphabetical (Z - A)</option>
+          <option value="weight-asc">Weight (Lightest First)</option>
+          <option value="weight-desc">Weight (Heaviest First)</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+
+
+
   <!-- --- 4. CATALOG GRID SECTION --- -->
   <section class="catalog-section" id="catalogGrid">
-    <div class="container">
+    <div class="container-wide">
       <div class="product-grid" id="dynamicCatalogGrid">
-        <!-- Products hydrated dynamically via script.js -->
+        <!-- Products hydrated dynamically via JavaScript below -->
       </div>
     </div>
   </section>
 
   <!-- --- 5. PREMIUM FOOTER --- -->
   <footer class="site-footer">
-    <div class="container footer-top">
+    <div class="container-wide footer-top">
       <div class="footer-grid">
         <!-- Brand Info -->
         <div class="footer-brand">
@@ -139,37 +967,1780 @@
 
     <!-- Copyright -->
     <div class="footer-bottom">
-      <div class="container">
-        <p>&copy; 2026 Bharathi Jewellers. All Rights Reserved. Catalog Showroom (No Billing or Cart Elements).</p>
+      <div class="container-wide">
+        <p>
+          &copy; 2026 Bharathi Jewellers. All Rights Reserved. Catalog Showroom (No Billing or Cart Elements).
+          <a href="https://billing-app-link.com" target="_blank" class="owner-login-subtle" id="ownerLoginBtn" title="Redirect to Owner Billing App">Owner Login</a>
+        </p>
       </div>
     </div>
   </footer>
 
-  <!-- --- 8. FLOATING GLOWING GLASS OWNER LOGIN BUTTON --- -->
-  <a href="https://billing-app-link.com" target="_blank" class="owner-login-btn" id="ownerLoginBtn" title="Redirect to Owner Billing App">
-    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-      <path d="M7 11V7a5 5 0 0 1 9.9-1"/>
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" id="scrollToTopBtn" aria-label="Scroll to Top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="19" x2="12" y2="5"></line>
+      <polyline points="5 12 12 5 19 12"></polyline>
     </svg>
-    Owner Login
-  </a>
+  </button>
 
-  <!-- JavaScript File -->
-  <script src="script.js"></script>
 
-  <!-- URL Landing Filter Auto-Processor -->
+
+  <!-- Interactive JavaScript hydration block -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const filter = urlParams.get('filter');
-      if (filter) {
-        // Find the button with matching data-filter
-        const targetBtn = document.querySelector(`.filter-btn[data-filter="${filter}"]`);
-        if (targetBtn) {
-          // Trigger a clean click event to switch categories instantly
-          targetBtn.click();
+
+      // === 1. STICKY HEADER FROSTED EFFECT ON SCROLL ===
+      const header = document.getElementById('siteHeader');
+      const handleScroll = () => {
+        if (header) {
+          if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+          } else {
+            header.classList.remove('scrolled');
+          }
+        }
+      };
+      window.addEventListener('scroll', handleScroll);
+      handleScroll(); // Initial check
+
+      // === 2. MOBILE MENU NAVBAR TOGGLE ===
+      const hamburger = document.getElementById('hamburgerBtn');
+      const navMenu = document.getElementById('navMenu');
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+          hamburger.classList.toggle('open');
+          navMenu.classList.toggle('open');
+        });
+
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            hamburger.classList.remove('open');
+            navMenu.classList.remove('open');
+          });
+        });
+      }
+
+      // === 3. SCROLL-TO-TOP BUTTON ===
+      const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+      if (scrollToTopBtn) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 400) {
+            scrollToTopBtn.classList.add('visible');
+          } else {
+            scrollToTopBtn.classList.remove('visible');
+          }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+
+      // === 4. DYNAMIC PRODUCTS HYDRATION DATASET ===
+      const fallbackProducts = [
+  {
+    "id": "prod_rings_1",
+    "name": "Royal Solitaire Diamond Ring",
+    "category": "rings",
+    "spec": "950 Platinum • Colombian Emr",
+    "badge": "Featured",
+    "image": "images/rings/r1.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "Premium 950 Platinum",
+      "Colombian Octagonal Emeralds",
+      "BIS 916 Certified",
+      "4.5 Grams Base"
+    ],
+    "desc": "A breathtaking masterwork designed to grace the finger with majestic elegance. Set in certified premium 950 platinum, the core colombian octagonal emeralds captures high dispersion reflections beautifully. Perfect for an exquisite statement or heirloom commitment.",
+    "shortSpec": "Premium 950 Platinum, Colombian Octagonal Emeralds (~4.5g base weight)"
+  },
+  {
+    "id": "prod_rings_10",
+    "name": "Kanak Hand-Carved Gold Ring",
+    "category": "rings",
+    "spec": "18K White Gold • South Sea Prls",
+    "badge": "Classic",
+    "image": "images/rings/r10.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "18K Elegant White Gold",
+      "White South Sea Pearls",
+      "BIS 916 Certified",
+      "12.6 Grams Base"
+    ],
+    "desc": "This stunning cocktail band showcases beautiful lustrous white south sea pearls accented seamlessly on a base of textured 18k elegant white gold. Sculpted by hand to assure optimal balance and comfortable, light finger presence.",
+    "shortSpec": "18K Elegant White Gold, Lustrous White South Sea Pearls (~12.6g base weight)"
+  },
+  {
+    "id": "prod_rings_2",
+    "name": "Imperial Polki Cocktail Ring",
+    "category": "rings",
+    "spec": "22K Matte Gold • South Sea Prls",
+    "badge": "Popular",
+    "image": "images/rings/r2.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "22K Temple Matte Gold",
+      "White South Sea Pearls",
+      "BIS 916 Certified",
+      "5.4 Grams Base"
+    ],
+    "desc": "Crafted in flawless 22k temple matte gold and accented with shimmering lustrous white south sea pearls, this ring features an ergonomic smooth inner band for ultimate luxury. The masterfully structured setting sits proudly, highlighting natural refraction.",
+    "shortSpec": "22K Temple Matte Gold, Lustrous White South Sea Pearls (~5.4g base weight)"
+  },
+  {
+    "id": "prod_rings_3",
+    "name": "Vedic Filigree Gold Band",
+    "category": "rings",
+    "spec": "18K White Gold • Uncut Polki Dms",
+    "badge": "New Arrival",
+    "image": "images/rings/r3.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #F9F6F0, #EFECE6)",
+    "chips": [
+      "18K Elegant White Gold",
+      "Uncut Polki Diamonds",
+      "BIS 916 Certified",
+      "6.3 Grams Base"
+    ],
+    "desc": "Inspired by historical royal seals, this 18k elegant white gold ring houses hand-selected traditional uncut polki diamonds in a heavy claw setting. Detailed filigree scrollwork runs gracefully along the outer shank, demonstrating museum-grade benchwork.",
+    "shortSpec": "18K Elegant White Gold, Traditional Uncut Polki Diamonds (~6.3g base weight)"
+  },
+  {
+    "id": "prod_rings_4",
+    "name": "Nizam Antique Emerald Ring",
+    "category": "rings",
+    "spec": "18K Rose Gold • VVS Dms",
+    "badge": "Exclusive",
+    "image": "images/rings/r4.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF5F5, #F0E6E6)",
+    "chips": [
+      "18K Soft Rose Gold",
+      "Marquise Cut VVS Diamonds",
+      "BIS 916 Certified",
+      "7.2 Grams Base"
+    ],
+    "desc": "A gorgeous contemporary design featuring pristine fine marquise cut vvs diamonds wrapped in polished 18k soft rose gold curves. Its elegant profile transitions fluidly from executive daily wear to premium evening regalia.",
+    "shortSpec": "18K Soft Rose Gold, Fine Marquise Cut VVS Diamonds (~7.2g base weight)"
+  },
+  {
+    "id": "prod_rings_5",
+    "name": "Chola Dynasty Signet Ring",
+    "category": "rings",
+    "spec": "22K Solid Gold • Colombian Emr",
+    "badge": "Best Seller",
+    "image": "images/rings/r5.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "22K Solid Yellow Gold",
+      "Colombian Octagonal Emeralds",
+      "BIS 916 Certified",
+      "8.1 Grams Base"
+    ],
+    "desc": "This stunning cocktail band showcases beautiful colombian octagonal emeralds accented seamlessly on a base of textured 22k solid yellow gold. Sculpted by hand to assure optimal balance and comfortable, light finger presence.",
+    "shortSpec": "22K Solid Yellow Gold, Colombian Octagonal Emeralds (~8.1g base weight)"
+  },
+  {
+    "id": "prod_rings_6",
+    "name": "Aura Marquise Diamond Ring",
+    "category": "rings",
+    "spec": "22K Polished Gold • South Sea Prls",
+    "badge": "Artisan Choice",
+    "image": "images/rings/r6.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "22K Antique Polished Gold",
+      "White South Sea Pearls",
+      "BIS 916 Certified",
+      "9.0 Grams Base"
+    ],
+    "desc": "A breathtaking masterwork designed to grace the finger with majestic elegance. Set in certified 22k antique polished gold, the core lustrous white south sea pearls captures high dispersion reflections beautifully. Perfect for an exquisite statement or heirloom commitment.",
+    "shortSpec": "22K Antique Polished Gold, Lustrous White South Sea Pearls (~9.0g base weight)"
+  },
+  {
+    "id": "prod_rings_7",
+    "name": "Devi Kundan Floral Ring",
+    "category": "rings",
+    "spec": "18K Champagne Gold • Uncut Polki Dms",
+    "badge": "Heritage",
+    "image": "images/rings/r7.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #F9F6F0, #EFECE6)",
+    "chips": [
+      "18K Champagne Gold",
+      "Uncut Polki Diamonds",
+      "BIS 916 Certified",
+      "9.9 Grams Base"
+    ],
+    "desc": "Crafted in flawless 18k champagne gold and accented with shimmering traditional uncut polki diamonds, this ring features an ergonomic smooth inner band for ultimate luxury. The masterfully structured setting sits proudly, highlighting natural refraction.",
+    "shortSpec": "18K Champagne Gold, Traditional Uncut Polki Diamonds (~9.9g base weight)"
+  },
+  {
+    "id": "prod_rings_8",
+    "name": "Rajkumari Ruby Halo Band",
+    "category": "rings",
+    "spec": "950 Platinum • VVS Dms",
+    "badge": null,
+    "image": "images/rings/r8.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF5F5, #F0E6E6)",
+    "chips": [
+      "Premium 950 Platinum",
+      "Marquise Cut VVS Diamonds",
+      "BIS 916 Certified",
+      "10.8 Grams Base"
+    ],
+    "desc": "Inspired by historical royal seals, this premium 950 platinum ring houses hand-selected fine marquise cut vvs diamonds in a heavy claw setting. Detailed filigree scrollwork runs gracefully along the outer shank, demonstrating museum-grade benchwork.",
+    "shortSpec": "Premium 950 Platinum, Fine Marquise Cut VVS Diamonds (~10.8g base weight)"
+  },
+  {
+    "id": "prod_rings_9",
+    "name": "Apsara Pear Cut Solitaire",
+    "category": "rings",
+    "spec": "22K Matte Gold • Colombian Emr",
+    "badge": "Limited",
+    "image": "images/rings/r9.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "22K Temple Matte Gold",
+      "Colombian Octagonal Emeralds",
+      "BIS 916 Certified",
+      "11.7 Grams Base"
+    ],
+    "desc": "A gorgeous contemporary design featuring pristine colombian octagonal emeralds wrapped in polished 22k temple matte gold curves. Its elegant profile transitions fluidly from executive daily wear to premium evening regalia.",
+    "shortSpec": "22K Temple Matte Gold, Colombian Octagonal Emeralds (~11.7g base weight)"
+  },
+  {
+    "id": "prod_necklaces_1",
+    "name": "Nizam Royal Emerald Choker",
+    "category": "necklaces",
+    "spec": "22K Matte Gold • Uncut Polki Dms",
+    "badge": null,
+    "image": "images/necklaces/n1.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "22K Temple Matte Gold",
+      "Uncut Polki Diamonds",
+      "BIS 916 Certified",
+      "42.0 Grams Base"
+    ],
+    "desc": "Draping the neckline with supreme royalty, this necklace integrates wreathed braids of 22k temple matte gold around pristine traditional uncut polki diamonds drop points. Crafted as a grand heirloom highlight for standard-setting luxury.",
+    "shortSpec": "22K Temple Matte Gold, Traditional Uncut Polki Diamonds (~42.0g base weight)"
+  },
+  {
+    "id": "prod_necklaces_10",
+    "name": "Aishwarya Diamond Wave Choker",
+    "category": "necklaces",
+    "spec": "18K Rose Gold • VVS Dms",
+    "badge": "Heritage",
+    "image": "images/necklaces/n10.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "18K Soft Rose Gold",
+      "Marquise Cut VVS Diamonds",
+      "BIS 916 Certified",
+      "67.2 Grams Base"
+    ],
+    "desc": "This custom-fit hasli collar integrates stylized peacock accents in hand-engraved 18k soft rose gold. Natural drop fine marquise cut vvs diamonds gems dangle fluidly, offering exquisite visual movement.",
+    "shortSpec": "18K Soft Rose Gold, Fine Marquise Cut VVS Diamonds (~67.2g base weight)"
+  },
+  {
+    "id": "prod_necklaces_2",
+    "name": "Chola Kasulaperu Gold Haar",
+    "category": "necklaces",
+    "spec": "18K White Gold • VVS Dms",
+    "badge": "Limited",
+    "image": "images/necklaces/n2.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "18K Elegant White Gold",
+      "Marquise Cut VVS Diamonds",
+      "BIS 916 Certified",
+      "44.8 Grams Base"
+    ],
+    "desc": "A magnificent classic collar piece hand-woven in certified 18k elegant white gold. Alternating clusters of ideal fine marquise cut vvs diamonds capture the ambient light gracefully, completing the ensemble with high-fashion sophistication.",
+    "shortSpec": "18K Elegant White Gold, Fine Marquise Cut VVS Diamonds (~44.8g base weight)"
+  },
+  {
+    "id": "prod_necklaces_3",
+    "name": "Mughal Kundan Bridal Choker",
+    "category": "necklaces",
+    "spec": "18K Rose Gold • Colombian Emr",
+    "badge": "Classic",
+    "image": "images/necklaces/n3.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #F9F6F0, #EFECE6)",
+    "chips": [
+      "18K Soft Rose Gold",
+      "Colombian Octagonal Emeralds",
+      "BIS 916 Certified",
+      "47.6 Grams Base"
+    ],
+    "desc": "Inspired by ancient dynasty art, this neckpiece displays beautifully layered bib-curving strands of 18k soft rose gold. Accented masterfully with sparkling colombian octagonal emeralds details that represent ultimate Indian cultural prestige.",
+    "shortSpec": "18K Soft Rose Gold, Colombian Octagonal Emeralds (~47.6g base weight)"
+  },
+  {
+    "id": "prod_necklaces_4",
+    "name": "Apsara South Sea Pearl Necklace",
+    "category": "necklaces",
+    "spec": "22K Solid Gold • South Sea Prls",
+    "badge": "Featured",
+    "image": "images/necklaces/n4.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF5F5, #F0E6E6)",
+    "chips": [
+      "22K Solid Yellow Gold",
+      "White South Sea Pearls",
+      "BIS 916 Certified",
+      "50.4 Grams Base"
+    ],
+    "desc": "An absolute marvel of craftsmanship, featuring cascading rows of lustrous white south sea pearls suspended gracefully on a sleek collar of 22k solid yellow gold. Buffed to a magnificent mirror gloss to enhance high-fashion evening wear.",
+    "shortSpec": "22K Solid Yellow Gold, Lustrous White South Sea Pearls (~50.4g base weight)"
+  },
+  {
+    "id": "prod_necklaces_5",
+    "name": "Rajkumari Guttapusalu Haar",
+    "category": "necklaces",
+    "spec": "22K Polished Gold • Uncut Polki Dms",
+    "badge": "Popular",
+    "image": "images/necklaces/n5.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "22K Antique Polished Gold",
+      "Uncut Polki Diamonds",
+      "BIS 916 Certified",
+      "53.2 Grams Base"
+    ],
+    "desc": "This custom-fit hasli collar integrates stylized peacock accents in hand-engraved 22k antique polished gold. Natural drop traditional uncut polki diamonds gems dangle fluidly, offering exquisite visual movement.",
+    "shortSpec": "22K Antique Polished Gold, Traditional Uncut Polki Diamonds (~53.2g base weight)"
+  },
+  {
+    "id": "prod_necklaces_6",
+    "name": "Royal Peacock Nakshi Necklace",
+    "category": "necklaces",
+    "spec": "18K Champagne Gold • VVS Dms",
+    "badge": "New Arrival",
+    "image": "images/necklaces/n6.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "18K Champagne Gold",
+      "Marquise Cut VVS Diamonds",
+      "BIS 916 Certified",
+      "56.0 Grams Base"
+    ],
+    "desc": "Draping the neckline with supreme royalty, this necklace integrates wreathed braids of 18k champagne gold around pristine fine marquise cut vvs diamonds drop points. Crafted as a grand heirloom highlight for standard-setting luxury.",
+    "shortSpec": "18K Champagne Gold, Fine Marquise Cut VVS Diamonds (~56.0g base weight)"
+  },
+  {
+    "id": "prod_necklaces_7",
+    "name": "Devi Antique Ruby Collar",
+    "category": "necklaces",
+    "spec": "950 Platinum • Colombian Emr",
+    "badge": "Exclusive",
+    "image": "images/necklaces/n7.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #F9F6F0, #EFECE6)",
+    "chips": [
+      "Premium 950 Platinum",
+      "Colombian Octagonal Emeralds",
+      "BIS 916 Certified",
+      "58.8 Grams Base"
+    ],
+    "desc": "A magnificent classic collar piece hand-woven in certified premium 950 platinum. Alternating clusters of ideal colombian octagonal emeralds capture the ambient light gracefully, completing the ensemble with high-fashion sophistication.",
+    "shortSpec": "Premium 950 Platinum, Colombian Octagonal Emeralds (~58.8g base weight)"
+  },
+  {
+    "id": "prod_necklaces_8",
+    "name": "Kanak Filigree Gold Lariat",
+    "category": "necklaces",
+    "spec": "22K Matte Gold • South Sea Prls",
+    "badge": "Best Seller",
+    "image": "images/necklaces/gold_choker.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF5F5, #F0E6E6)",
+    "chips": [
+      "22K Temple Matte Gold",
+      "White South Sea Pearls",
+      "BIS 916 Certified",
+      "61.6 Grams Base"
+    ],
+    "desc": "Inspired by ancient dynasty art, this neckpiece displays beautifully layered bib-curving strands of 22k temple matte gold. Accented masterfully with sparkling lustrous white south sea pearls details that represent ultimate Indian cultural prestige.",
+    "shortSpec": "22K Temple Matte Gold, Lustrous White South Sea Pearls (~61.6g base weight)"
+  },
+  {
+    "id": "prod_necklaces_9",
+    "name": "Lakshmi Temple Heavy Haar",
+    "category": "necklaces",
+    "spec": "18K White Gold • Uncut Polki Dms",
+    "badge": "Artisan Choice",
+    "image": "images/necklaces/n9.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "18K Elegant White Gold",
+      "Uncut Polki Diamonds",
+      "BIS 916 Certified",
+      "64.4 Grams Base"
+    ],
+    "desc": "An absolute marvel of craftsmanship, featuring cascading rows of traditional uncut polki diamonds suspended gracefully on a sleek collar of 18k elegant white gold. Buffed to a magnificent mirror gloss to enhance high-fashion evening wear.",
+    "shortSpec": "18K Elegant White Gold, Traditional Uncut Polki Diamonds (~64.4g base weight)"
+  },
+  {
+    "id": "prod_bracelets_1",
+    "name": "Apsara Brilliant Tennis Bracelet",
+    "category": "bracelets",
+    "spec": "22K Solid Gold • Burmese Rub",
+    "badge": "Popular",
+    "image": "images/bracelets/b2.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "22K Solid Yellow Gold",
+      "Natural Burmese Rubies",
+      "BIS 916 Certified",
+      "25.0 Grams Base"
+    ],
+    "desc": "A fluid, seamless stream of brilliant-cut natural untreated burmese rubies set beautifully in a secure 22k solid yellow gold line layout. Features a custom integrated clasp lock for absolute security and standard-setting wrist comfort.",
+    "shortSpec": "22K Solid Yellow Gold, Natural Untreated Burmese Rubies (~25.0g base weight)"
+  },
+  {
+    "id": "prod_bracelets_10",
+    "name": "Vedic Sanskrit Engraved Kada",
+    "category": "bracelets",
+    "spec": "18K Champagne Gold • Ceylon Saph",
+    "badge": "Featured",
+    "image": "images/bracelets/b10.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "18K Champagne Gold",
+      "Royal Blue Ceylon Sapphires",
+      "BIS 916 Certified",
+      "42.1 Grams Base"
+    ],
+    "desc": "This highly durable link chain bracelet displays pristine royal blue ceylon sapphires charms draping elegantly from heavy 18k champagne gold loops. A beautiful touch of everyday luxury.",
+    "shortSpec": "18K Champagne Gold, Royal Blue Ceylon Sapphires (~42.1g base weight)"
+  },
+  {
+    "id": "prod_bracelets_2",
+    "name": "Nizam Royal Gold Kada",
+    "category": "bracelets",
+    "spec": "22K Polished Gold • Ceylon Saph",
+    "badge": "New Arrival",
+    "image": "images/bracelets/b3.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "22K Antique Polished Gold",
+      "Royal Blue Ceylon Sapphires",
+      "BIS 916 Certified",
+      "26.9 Grams Base"
+    ],
+    "desc": "This structural cuff bracelet is hand-forged in premium 22k antique polished gold. Features alternating polished panels and rows of hand-set royal blue ceylon sapphires to present an understated, premium wrist silhouette.",
+    "shortSpec": "22K Antique Polished Gold, Royal Blue Ceylon Sapphires (~26.9g base weight)"
+  },
+  {
+    "id": "prod_bracelets_3",
+    "name": "Chola Filigree Link Bracelet",
+    "category": "bracelets",
+    "spec": "18K Champagne Gold • Basra Prls",
+    "badge": "Exclusive",
+    "image": "images/bracelets/b4.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #F9F6F0, #EFECE6)",
+    "chips": [
+      "18K Champagne Gold",
+      "Creamy Basra Pearls",
+      "BIS 916 Certified",
+      "28.8 Grams Base"
+    ],
+    "desc": "Interlocking twisted braids of 18k champagne gold are completed by highly detailed clusters of lustrous creamy basra pearls at the terminals. Lightweight and fluidly flexible, it curves gracefully around the wrist for premium daily styling.",
+    "shortSpec": "18K Champagne Gold, Lustrous Creamy Basra Pearls (~28.8g base weight)"
+  },
+  {
+    "id": "prod_bracelets_4",
+    "name": "Mughal Kundan Cuff Bracelet",
+    "category": "bracelets",
+    "spec": "950 Platinum • VVS1 Sol Dms",
+    "badge": "Best Seller",
+    "image": "images/bracelets/b5.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF5F5, #F0E6E6)",
+    "chips": [
+      "Premium 950 Platinum",
+      "VVS1 Solitaire Diamonds",
+      "BIS 916 Certified",
+      "30.7 Grams Base"
+    ],
+    "desc": "An opulent contemporary statement piece showcasing ideal-cut ideal cut vvs1 solitaire diamonds in a bold geometry of polished premium 950 platinum. Designed to catch reflections from all angles with every single hand movement.",
+    "shortSpec": "Premium 950 Platinum, Ideal Cut VVS1 Solitaire Diamonds (~30.7g base weight)"
+  },
+  {
+    "id": "prod_bracelets_5",
+    "name": "Mayura Nakshi Hand Kada",
+    "category": "bracelets",
+    "spec": "22K Matte Gold • Burmese Rub",
+    "badge": "Artisan Choice",
+    "image": "images/bracelets/b6.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "22K Temple Matte Gold",
+      "Natural Burmese Rubies",
+      "BIS 916 Certified",
+      "32.6 Grams Base"
+    ],
+    "desc": "This highly durable link chain bracelet displays pristine natural untreated burmese rubies charms draping elegantly from heavy 22k temple matte gold loops. A beautiful touch of everyday luxury.",
+    "shortSpec": "22K Temple Matte Gold, Natural Untreated Burmese Rubies (~32.6g base weight)"
+  },
+  {
+    "id": "prod_bracelets_6",
+    "name": "Kanak Delicate Gold Chain Bracelet",
+    "category": "bracelets",
+    "spec": "18K White Gold • Ceylon Saph",
+    "badge": "Heritage",
+    "image": "images/bracelets/kanak_gold_chain_bracelet.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "18K Elegant White Gold",
+      "Royal Blue Ceylon Sapphires",
+      "BIS 916 Certified",
+      "34.5 Grams Base"
+    ],
+    "desc": "A fluid, seamless stream of brilliant-cut royal blue ceylon sapphires set beautifully in a secure 18k elegant white gold line layout. Features a custom integrated clasp lock for absolute security and standard-setting wrist comfort.",
+    "shortSpec": "18K Elegant White Gold, Royal Blue Ceylon Sapphires (~34.5g base weight)"
+  },
+  {
+    "id": "prod_bracelets_7",
+    "name": "Aura Marquise Diamond Bracelet",
+    "category": "bracelets",
+    "spec": "18K Rose Gold • Basra Prls",
+    "badge": null,
+    "image": "images/bracelets/b7.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #F9F6F0, #EFECE6)",
+    "chips": [
+      "18K Soft Rose Gold",
+      "Creamy Basra Pearls",
+      "BIS 916 Certified",
+      "36.4 Grams Base"
+    ],
+    "desc": "This structural cuff bracelet is hand-forged in premium 18k soft rose gold. Features alternating polished panels and rows of hand-set lustrous creamy basra pearls to present an understated, premium wrist silhouette.",
+    "shortSpec": "18K Soft Rose Gold, Lustrous Creamy Basra Pearls (~36.4g base weight)"
+  },
+  {
+    "id": "prod_bracelets_8",
+    "name": "Devi Ruby Cabochon Bangle-Cuff",
+    "category": "bracelets",
+    "spec": "22K Solid Gold • VVS1 Sol Dms",
+    "badge": "Limited",
+    "image": "images/bracelets/b8.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF5F5, #F0E6E6)",
+    "chips": [
+      "22K Solid Yellow Gold",
+      "VVS1 Solitaire Diamonds",
+      "BIS 916 Certified",
+      "38.3 Grams Base"
+    ],
+    "desc": "Interlocking twisted braids of 22k solid yellow gold are completed by highly detailed clusters of ideal cut vvs1 solitaire diamonds at the terminals. Lightweight and fluidly flexible, it curves gracefully around the wrist for premium daily styling.",
+    "shortSpec": "22K Solid Yellow Gold, Ideal Cut VVS1 Solitaire Diamonds (~38.3g base weight)"
+  },
+  {
+    "id": "prod_bracelets_9",
+    "name": "Rajkumari Pearl Strand Bracelet",
+    "category": "bracelets",
+    "spec": "22K Polished Gold • Burmese Rub",
+    "badge": "Classic",
+    "image": "images/bracelets/b9.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "22K Antique Polished Gold",
+      "Natural Burmese Rubies",
+      "BIS 916 Certified",
+      "40.2 Grams Base"
+    ],
+    "desc": "An opulent contemporary statement piece showcasing ideal-cut natural untreated burmese rubies in a bold geometry of polished 22k antique polished gold. Designed to catch reflections from all angles with every single hand movement.",
+    "shortSpec": "22K Antique Polished Gold, Natural Untreated Burmese Rubies (~40.2g base weight)"
+  },
+  {
+    "id": "prod_bangles_1",
+    "name": "Mayura Filigree Temple Kada",
+    "category": "bangles",
+    "spec": "22K Solid Gold • Colombian Emr",
+    "badge": "Featured",
+    "image": "images/bangles/088a4ea5a45af1e2a62c12abf18f07fd.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "22K Solid Yellow Gold",
+      "Colombian Octagonal Emeralds",
+      "BIS 916 Certified",
+      "25.0 Grams Base"
+    ],
+    "desc": "A spectacular hand-sculptly Kada Bangle crafted in certified 22k solid yellow gold. Detailed with traditional repoussé carvings and hand-inlaid colombian octagonal emeralds motifs, finished with a discreet side-hinge lock mechanism.",
+    "shortSpec": "22K Solid Yellow Gold, Colombian Octagonal Emeralds (~25.0g base weight)"
+  },
+  {
+    "id": "prod_bangles_10",
+    "name": "Devi Ruby Accent Bangles",
+    "category": "bangles",
+    "spec": "18K Champagne Gold • South Sea Prls",
+    "badge": "Classic",
+    "image": "images/bangles/fb02abd145d76933cf424709522fbeeb.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "18K Champagne Gold",
+      "White South Sea Pearls",
+      "BIS 916 Certified",
+      "42.1 Grams Base"
+    ],
+    "desc": "These luxury bangles showcase alternating bands of raw gold texture and brilliant row settings of lustrous white south sea pearls. An exquisite testament to generational hand-craftsmanship.",
+    "shortSpec": "18K Champagne Gold, Lustrous White South Sea Pearls (~42.1g base weight)"
+  },
+  {
+    "id": "prod_bangles_2",
+    "name": "Vedic Solid Gold Valaya",
+    "category": "bangles",
+    "spec": "22K Polished Gold • South Sea Prls",
+    "badge": "Popular",
+    "image": "images/bangles/196d20984c588145b1f57e2818bdf2e0.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "22K Antique Polished Gold",
+      "White South Sea Pearls",
+      "BIS 916 Certified",
+      "26.9 Grams Base"
+    ],
+    "desc": "A pair of magnificent solid bangles hand-detailed in 22k antique polished gold with mirror polished outer trims. Bordered with a delicate pavé row of shimmering lustrous white south sea pearls to ensure extreme optical reflections.",
+    "shortSpec": "22K Antique Polished Gold, Lustrous White South Sea Pearls (~26.9g base weight)"
+  },
+  {
+    "id": "prod_bangles_3",
+    "name": "Royal Jaipur Meenakari Bangles",
+    "category": "bangles",
+    "spec": "18K Champagne Gold • Uncut Polki Dms",
+    "badge": "New Arrival",
+    "image": "images/bangles/457529cd22e21bd480e4d01036329a1d.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #F9F6F0, #EFECE6)",
+    "chips": [
+      "18K Champagne Gold",
+      "Uncut Polki Diamonds",
+      "BIS 916 Certified",
+      "28.8 Grams Base"
+    ],
+    "desc": "Inspired by royal Jaipur enamel work, these bangles are forged in 18k champagne gold with delicate traditional uncut polki diamonds settings. Features highly comfortable inner contours, ideal for wedding wear or festive highlights.",
+    "shortSpec": "18K Champagne Gold, Traditional Uncut Polki Diamonds (~28.8g base weight)"
+  },
+  {
+    "id": "prod_bangles_4",
+    "name": "Chola Antique Nakshi Kada",
+    "category": "bangles",
+    "spec": "950 Platinum • VVS Dms",
+    "badge": "Exclusive",
+    "image": "images/bangles/62145ede77f23cbf7168159ea6a1c8b1.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF5F5, #F0E6E6)",
+    "chips": [
+      "Premium 950 Platinum",
+      "Marquise Cut VVS Diamonds",
+      "BIS 916 Certified",
+      "30.7 Grams Base"
+    ],
+    "desc": "Heavy classic bangles showing intricate filigree carvings in premium 950 platinum, centered beautifully with Colombian fine marquise cut vvs diamonds highlights. Buffed to a warm, premium satin matte finish.",
+    "shortSpec": "Premium 950 Platinum, Fine Marquise Cut VVS Diamonds (~30.7g base weight)"
+  },
+  {
+    "id": "prod_bangles_5",
+    "name": "Kanak Traditional Gold Patla",
+    "category": "bangles",
+    "spec": "22K Matte Gold • Colombian Emr",
+    "badge": "Best Seller",
+    "image": "images/bangles/8433f7b4691485e77e087f776a478b2d.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "22K Temple Matte Gold",
+      "Colombian Octagonal Emeralds",
+      "BIS 916 Certified",
+      "32.6 Grams Base"
+    ],
+    "desc": "These luxury bangles showcase alternating bands of raw gold texture and brilliant row settings of colombian octagonal emeralds. An exquisite testament to generational hand-craftsmanship.",
+    "shortSpec": "22K Temple Matte Gold, Colombian Octagonal Emeralds (~32.6g base weight)"
+  },
+  {
+    "id": "prod_bangles_6",
+    "name": "Apsara Diamond Bangle Set",
+    "category": "bangles",
+    "spec": "18K White Gold • South Sea Prls",
+    "badge": "Artisan Choice",
+    "image": "images/bangles/a5b41e17b2cf02c7606af4cc46c2b7f7.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "18K Elegant White Gold",
+      "White South Sea Pearls",
+      "BIS 916 Certified",
+      "34.5 Grams Base"
+    ],
+    "desc": "A spectacular hand-sculptly Kada Bangle crafted in certified 18k elegant white gold. Detailed with traditional repoussé carvings and hand-inlaid lustrous white south sea pearls motifs, finished with a discreet side-hinge lock mechanism.",
+    "shortSpec": "18K Elegant White Gold, Lustrous White South Sea Pearls (~34.5g base weight)"
+  },
+  {
+    "id": "prod_bangles_7",
+    "name": "Nizam Kundan Heavy Kada",
+    "category": "bangles",
+    "spec": "18K Rose Gold • Uncut Polki Dms",
+    "badge": "Heritage",
+    "image": "images/bangles/b7d64e883d67d82bc7f1b72a1c28cf1c.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #F9F6F0, #EFECE6)",
+    "chips": [
+      "18K Soft Rose Gold",
+      "Uncut Polki Diamonds",
+      "BIS 916 Certified",
+      "36.4 Grams Base"
+    ],
+    "desc": "A pair of magnificent solid bangles hand-detailed in 18k soft rose gold with mirror polished outer trims. Bordered with a delicate pavé row of shimmering traditional uncut polki diamonds to ensure extreme optical reflections.",
+    "shortSpec": "18K Soft Rose Gold, Traditional Uncut Polki Diamonds (~36.4g base weight)"
+  },
+  {
+    "id": "prod_bangles_8",
+    "name": "Rajkumari Gilded Bead Bangles",
+    "category": "bangles",
+    "spec": "22K Solid Gold • VVS Dms",
+    "badge": null,
+    "image": "images/bangles/b966f70b4070684f96c930515cde03da.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF5F5, #F0E6E6)",
+    "chips": [
+      "22K Solid Yellow Gold",
+      "Marquise Cut VVS Diamonds",
+      "BIS 916 Certified",
+      "38.3 Grams Base"
+    ],
+    "desc": "Inspired by royal Jaipur enamel work, these bangles are forged in 22k solid yellow gold with delicate fine marquise cut vvs diamonds settings. Features highly comfortable inner contours, ideal for wedding wear or festive highlights.",
+    "shortSpec": "22K Solid Yellow Gold, Fine Marquise Cut VVS Diamonds (~38.3g base weight)"
+  },
+  {
+    "id": "prod_bangles_9",
+    "name": "Lakshmi Icon Temple Kada",
+    "category": "bangles",
+    "spec": "22K Polished Gold • Colombian Emr",
+    "badge": "Limited",
+    "image": "images/bangles/df9f6d5e0e3ebbcd12b8e1bf8f1f153a.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "22K Antique Polished Gold",
+      "Colombian Octagonal Emeralds",
+      "BIS 916 Certified",
+      "40.2 Grams Base"
+    ],
+    "desc": "Heavy classic bangles showing intricate filigree carvings in 22k antique polished gold, centered beautifully with Colombian colombian octagonal emeralds highlights. Buffed to a warm, premium satin matte finish.",
+    "shortSpec": "22K Antique Polished Gold, Colombian Octagonal Emeralds (~40.2g base weight)"
+  },
+  {
+    "id": "prod_earrings_1",
+    "name": "Kanak Kundan Drop Jhumkas",
+    "category": "earrings",
+    "spec": "22K Polished Gold • Colombian Emr",
+    "badge": "New Arrival",
+    "image": "images/earrings/kanak_kundan_jhumkas.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "22K Antique Polished Gold",
+      "Colombian Octagonal Emeralds",
+      "BIS 916 Certified",
+      "12.0 Grams Base"
+    ],
+    "desc": "Stunning jhumka drops hand-finished in 22k antique polished gold. Rows of tiny seed pearls and premium colombian octagonal emeralds dangle beautifully, dancing gracefully with every movement to frame the face in soft light.",
+    "shortSpec": "22K Antique Polished Gold, Colombian Octagonal Emeralds (~12.0g base weight)"
+  },
+  {
+    "id": "prod_earrings_10",
+    "name": "Mughal Heritage Kundan Drops",
+    "category": "earrings",
+    "spec": "950 Platinum • South Sea Prls",
+    "badge": "Popular",
+    "image": "images/earrings/mughal_kundan_drops.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "Premium 950 Platinum",
+      "White South Sea Pearls",
+      "BIS 916 Certified",
+      "19.2 Grams Base"
+    ],
+    "desc": "Delicate filigree drop earrings hand-burnished in premium 950 platinum. Adorned with natural marquise-cut lustrous white south sea pearls details, delivering an elegant highlight of premium luxury.",
+    "shortSpec": "Premium 950 Platinum, Lustrous White South Sea Pearls (~19.2g base weight)"
+  },
+  {
+    "id": "prod_earrings_2",
+    "name": "Lakshmi Nakshi Temple Studs",
+    "category": "earrings",
+    "spec": "18K Champagne Gold • South Sea Prls",
+    "badge": "Exclusive",
+    "image": "images/earrings/lakshmi_temple_studs.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "18K Champagne Gold",
+      "White South Sea Pearls",
+      "BIS 916 Certified",
+      "12.8 Grams Base"
+    ],
+    "desc": "Elegantly structured studs crafted in solid 18k champagne gold, ringed by highly reflective halos of lustrous white south sea pearls. A timeless, simple signature detail designed for standard-setting daily elegance.",
+    "shortSpec": "18K Champagne Gold, Lustrous White South Sea Pearls (~12.8g base weight)"
+  },
+  {
+    "id": "prod_earrings_3",
+    "name": "Brilliant Halo Diamond Chandbalis",
+    "category": "earrings",
+    "spec": "950 Platinum • Uncut Polki Dms",
+    "badge": "Best Seller",
+    "image": "images/earrings/diamond_halo_chandbalis.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #F9F6F0, #EFECE6)",
+    "chips": [
+      "Premium 950 Platinum",
+      "Uncut Polki Diamonds",
+      "BIS 916 Certified",
+      "13.6 Grams Base"
+    ],
+    "desc": "Dazzling chandbalis that capture the romance of ancient empires. Hand-set with raw uncut traditional uncut polki diamonds drops in a secure bezel layout of matte finished premium 950 platinum.",
+    "shortSpec": "Premium 950 Platinum, Traditional Uncut Polki Diamonds (~13.6g base weight)"
+  },
+  {
+    "id": "prod_earrings_4",
+    "name": "Apsara Pearl Cluster Drops",
+    "category": "earrings",
+    "spec": "22K Matte Gold • VVS Dms",
+    "badge": "Artisan Choice",
+    "image": "images/earrings/pearl_cluster_drops.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF5F5, #F0E6E6)",
+    "chips": [
+      "22K Temple Matte Gold",
+      "Marquise Cut VVS Diamonds",
+      "BIS 916 Certified",
+      "14.4 Grams Base"
+    ],
+    "desc": "Sleek contemporary hanging ear-threads in certified 22k temple matte gold. Accented with perfect round-cut fine marquise cut vvs diamonds solitaires that glide effortlessly, combining comfort with intense fire.",
+    "shortSpec": "22K Temple Matte Gold, Fine Marquise Cut VVS Diamonds (~14.4g base weight)"
+  },
+  {
+    "id": "prod_earrings_5",
+    "name": "Devi Ruby Sui-Dhaga Earrings",
+    "category": "earrings",
+    "spec": "18K White Gold • Colombian Emr",
+    "badge": "Heritage",
+    "image": "images/earrings/ruby_suidhaga_earrings.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "18K Elegant White Gold",
+      "Colombian Octagonal Emeralds",
+      "BIS 916 Certified",
+      "15.2 Grams Base"
+    ],
+    "desc": "Delicate filigree drop earrings hand-burnished in 18k elegant white gold. Adorned with natural marquise-cut colombian octagonal emeralds details, delivering an elegant highlight of premium luxury.",
+    "shortSpec": "18K Elegant White Gold, Colombian Octagonal Emeralds (~15.2g base weight)"
+  },
+  {
+    "id": "prod_earrings_6",
+    "name": "Nizam Royal Emerald Ear-Tops",
+    "category": "earrings",
+    "spec": "18K Rose Gold • South Sea Prls",
+    "badge": null,
+    "image": "images/earrings/nizam_emerald_tops.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "18K Soft Rose Gold",
+      "White South Sea Pearls",
+      "BIS 916 Certified",
+      "16.0 Grams Base"
+    ],
+    "desc": "Stunning jhumka drops hand-finished in 18k soft rose gold. Rows of tiny seed pearls and premium lustrous white south sea pearls dangle beautifully, dancing gracefully with every movement to frame the face in soft light.",
+    "shortSpec": "18K Soft Rose Gold, Lustrous White South Sea Pearls (~16.0g base weight)"
+  },
+  {
+    "id": "prod_earrings_7",
+    "name": "Chola Filigree Hanging Earrings",
+    "category": "earrings",
+    "spec": "22K Solid Gold • Uncut Polki Dms",
+    "badge": "Limited",
+    "image": "images/earrings/chola_filigree_earrings.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #F9F6F0, #EFECE6)",
+    "chips": [
+      "22K Solid Yellow Gold",
+      "Uncut Polki Diamonds",
+      "BIS 916 Certified",
+      "16.8 Grams Base"
+    ],
+    "desc": "Elegantly structured studs crafted in solid 22k solid yellow gold, ringed by highly reflective halos of traditional uncut polki diamonds. A timeless, simple signature detail designed for standard-setting daily elegance.",
+    "shortSpec": "22K Solid Yellow Gold, Traditional Uncut Polki Diamonds (~16.8g base weight)"
+  },
+  {
+    "id": "prod_earrings_8",
+    "name": "Rajkumari Polki Chandbalis",
+    "category": "earrings",
+    "spec": "22K Polished Gold • VVS Dms",
+    "badge": "Classic",
+    "image": "images/earrings/aura_diamond_studs.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF5F5, #F0E6E6)",
+    "chips": [
+      "22K Antique Polished Gold",
+      "Marquise Cut VVS Diamonds",
+      "BIS 916 Certified",
+      "17.6 Grams Base"
+    ],
+    "desc": "Dazzling chandbalis that capture the romance of ancient empires. Hand-set with raw uncut fine marquise cut vvs diamonds drops in a secure bezel layout of matte finished 22k antique polished gold.",
+    "shortSpec": "22K Antique Polished Gold, Fine Marquise Cut VVS Diamonds (~17.6g base weight)"
+  },
+  {
+    "id": "prod_earrings_9",
+    "name": "Aura Classic Diamond Studs",
+    "category": "earrings",
+    "spec": "18K Champagne Gold • Colombian Emr",
+    "badge": "Featured",
+    "image": "images/earrings/rajkumari_polki_chandbalis.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "18K Champagne Gold",
+      "Colombian Octagonal Emeralds",
+      "BIS 916 Certified",
+      "18.4 Grams Base"
+    ],
+    "desc": "Sleek contemporary hanging ear-threads in certified 18k champagne gold. Accented with perfect round-cut colombian octagonal emeralds solitaires that glide effortlessly, combining comfort with intense fire.",
+    "shortSpec": "18K Champagne Gold, Colombian Octagonal Emeralds (~18.4g base weight)"
+  },
+  {
+    "id": "prod_earrings_missing_3",
+    "name": "Diamond earrings",
+    "category": "earrings",
+    "spec": "18K Rose Gold • VVS Diamonds",
+    "badge": "New Arrival",
+    "image": "images/earrings/diamond_earrings.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "18K Soft Rose Gold",
+      "Marquise Cut VVS Diamonds",
+      "BIS 916 Certified",
+      "11.5 Grams Base"
+    ],
+    "desc": "An absolute marvel of craftsmanship, framing diamond earrings with elite hand-finishing and pristine materials. Authenticated and certified by Bharathi showroom curators.",
+    "shortSpec": "18K Rose Gold • VVS Diamonds (~11.5 Grams Base)"
+  },
+  {
+    "id": "prod_earrings_missing_4",
+    "name": "Kundan jhumkas",
+    "category": "earrings",
+    "spec": "18K Rose Gold • VVS Diamonds",
+    "badge": "New Arrival",
+    "image": "images/earrings/kundan_jhumkas.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "18K Soft Rose Gold",
+      "Marquise Cut VVS Diamonds",
+      "BIS 916 Certified",
+      "11.5 Grams Base"
+    ],
+    "desc": "An absolute marvel of craftsmanship, framing kundan jhumkas with elite hand-finishing and pristine materials. Authenticated and certified by Bharathi showroom curators.",
+    "shortSpec": "18K Rose Gold • VVS Diamonds (~11.5 Grams Base)"
+  },
+  {
+    "id": "prod_chains_1",
+    "name": "Adrika Gold Rope Link Chain",
+    "category": "chains",
+    "spec": "18K White Gold • VVS1 Sol Dms",
+    "badge": "Popular",
+    "image": "images/chains/165502f128854c10cce94262c75f4e7b.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "18K Elegant White Gold",
+      "VVS1 Solitaire Diamonds",
+      "BIS 916 Certified",
+      "18.0 Grams Base"
+    ],
+    "desc": "A masterfully woven rope chain crafted meticulously in certified 18k elegant white gold. Buffed to a magnificent mirror shine to capture and reflect light with clean daily wear durability.",
+    "shortSpec": "18K Elegant White Gold, Ideal Cut VVS1 Solitaire Diamonds (~18.0g base weight)"
+  },
+  {
+    "id": "prod_chains_10",
+    "name": "Mayura Delicate Figarope Chain",
+    "category": "chains",
+    "spec": "22K Solid Gold • Burmese Rub",
+    "badge": "Featured",
+    "image": "images/chains/c5ceb7c2dfe5b81b7ace6fe65fd0b4a9.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "22K Solid Yellow Gold",
+      "Natural Burmese Rubies",
+      "BIS 916 Certified",
+      "31.5 Grams Base"
+    ],
+    "desc": "A classic double-loop curb chain forged in heavy 22k solid yellow gold. Buffed to a rich, warm champagne gold gloss that layers beautifully with premium showroom pendants.",
+    "shortSpec": "22K Solid Yellow Gold, Natural Untreated Burmese Rubies (~31.5g base weight)"
+  },
+  {
+    "id": "prod_chains_2",
+    "name": "Vedic Solid Curb Link Chain",
+    "category": "chains",
+    "spec": "18K Rose Gold • Burmese Rub",
+    "badge": "New Arrival",
+    "image": "images/chains/1b40954917f310749538da9c5c167e0b.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "18K Soft Rose Gold",
+      "Natural Burmese Rubies",
+      "BIS 916 Certified",
+      "19.5 Grams Base"
+    ],
+    "desc": "Featuring solid, precision-interlocking curb links hand-polished in 18k soft rose gold. Accented discreetly near the clasp with brilliant-cut natural untreated burmese rubies details to ensure subtle prestige.",
+    "shortSpec": "18K Soft Rose Gold, Natural Untreated Burmese Rubies (~19.5g base weight)"
+  },
+  {
+    "id": "prod_chains_3",
+    "name": "Ananta Hand-Woven Spiga Chain",
+    "category": "chains",
+    "spec": "22K Solid Gold • Ceylon Saph",
+    "badge": "Exclusive",
+    "image": "images/chains/212996bdc3487363485944fd1c6b98ec.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #F9F6F0, #EFECE6)",
+    "chips": [
+      "22K Solid Yellow Gold",
+      "Royal Blue Ceylon Sapphires",
+      "BIS 916 Certified",
+      "21.0 Grams Base"
+    ],
+    "desc": "A highly flexible, hand-finished spiga chain woven in solid 22k solid yellow gold. Glides smoothly across the skin with comfort-fit beveling, designed for standard-standing daily wear.",
+    "shortSpec": "22K Solid Yellow Gold, Royal Blue Ceylon Sapphires (~21.0g base weight)"
+  },
+  {
+    "id": "prod_chains_4",
+    "name": "Kanak Diamond-Cut Rope Chain",
+    "category": "chains",
+    "spec": "22K Polished Gold • Basra Prls",
+    "badge": "Best Seller",
+    "image": "images/chains/305ceca757e0ae9d77c1a72e1352ee99.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF5F5, #F0E6E6)",
+    "chips": [
+      "22K Antique Polished Gold",
+      "Creamy Basra Pearls",
+      "BIS 916 Certified",
+      "22.5 Grams Base"
+    ],
+    "desc": "This elegant rectangular box link chain is crafted in soft 22k antique polished gold. Accented with tiny round lustrous creamy basra pearls charms to present an exceptionally elegant, understated neck line.",
+    "shortSpec": "22K Antique Polished Gold, Lustrous Creamy Basra Pearls (~22.5g base weight)"
+  },
+  {
+    "id": "prod_chains_5",
+    "name": "Chola Antique Wheat Link Chain",
+    "category": "chains",
+    "spec": "18K Champagne Gold • VVS1 Sol Dms",
+    "badge": "Artisan Choice",
+    "image": "images/chains/444283f46a14c24470146c514d9d9258.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "18K Champagne Gold",
+      "VVS1 Solitaire Diamonds",
+      "BIS 916 Certified",
+      "24.0 Grams Base"
+    ],
+    "desc": "A classic double-loop curb chain forged in heavy 18k champagne gold. Buffed to a rich, warm champagne gold gloss that layers beautifully with premium showroom pendants.",
+    "shortSpec": "18K Champagne Gold, Ideal Cut VVS1 Solitaire Diamonds (~24.0g base weight)"
+  },
+  {
+    "id": "prod_chains_6",
+    "name": "Devi Fine Venetian Box Chain",
+    "category": "chains",
+    "spec": "950 Platinum • Burmese Rub",
+    "badge": "Heritage",
+    "image": "images/chains/74fd5bba7dbd413b30289f30587134cf.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "Premium 950 Platinum",
+      "Natural Burmese Rubies",
+      "BIS 916 Certified",
+      "25.5 Grams Base"
+    ],
+    "desc": "A masterfully woven rope chain crafted meticulously in certified premium 950 platinum. Buffed to a magnificent mirror shine to capture and reflect light with clean daily wear durability.",
+    "shortSpec": "Premium 950 Platinum, Natural Untreated Burmese Rubies (~25.5g base weight)"
+  },
+  {
+    "id": "prod_chains_7",
+    "name": "Rajkumari Delicate Cable Link Chain",
+    "category": "chains",
+    "spec": "22K Matte Gold • Ceylon Saph",
+    "badge": null,
+    "image": "images/chains/7a6e7d6ed5d287a3e561538658d43fea.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #F9F6F0, #EFECE6)",
+    "chips": [
+      "22K Temple Matte Gold",
+      "Royal Blue Ceylon Sapphires",
+      "BIS 916 Certified",
+      "27.0 Grams Base"
+    ],
+    "desc": "Featuring solid, precision-interlocking curb links hand-polished in 22k temple matte gold. Accented discreetly near the clasp with brilliant-cut royal blue ceylon sapphires details to ensure subtle prestige.",
+    "shortSpec": "22K Temple Matte Gold, Royal Blue Ceylon Sapphires (~27.0g base weight)"
+  },
+  {
+    "id": "prod_chains_8",
+    "name": "Mughal Heavy Byzantine Link Chain",
+    "category": "chains",
+    "spec": "18K White Gold • Basra Prls",
+    "badge": "Limited",
+    "image": "images/chains/a4758ec76a369ca3bed47becc664205d.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF5F5, #F0E6E6)",
+    "chips": [
+      "18K Elegant White Gold",
+      "Creamy Basra Pearls",
+      "BIS 916 Certified",
+      "28.5 Grams Base"
+    ],
+    "desc": "A highly flexible, hand-finished spiga chain woven in solid 18k elegant white gold. Glides smoothly across the skin with comfort-fit beveling, designed for standard-standing daily wear.",
+    "shortSpec": "18K Elegant White Gold, Lustrous Creamy Basra Pearls (~28.5g base weight)"
+  },
+  {
+    "id": "prod_chains_9",
+    "name": "Nizam Royal Ball Bead Chain",
+    "category": "chains",
+    "spec": "18K Rose Gold • VVS1 Sol Dms",
+    "badge": "Classic",
+    "image": "images/chains/c28fe51684abc166e15b7d66d45eff9e.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "18K Soft Rose Gold",
+      "VVS1 Solitaire Diamonds",
+      "BIS 916 Certified",
+      "30.0 Grams Base"
+    ],
+    "desc": "This elegant rectangular box link chain is crafted in soft 18k soft rose gold. Accented with tiny round ideal cut vvs1 solitaire diamonds charms to present an exceptionally elegant, understated neck line.",
+    "shortSpec": "18K Soft Rose Gold, Ideal Cut VVS1 Solitaire Diamonds (~30.0g base weight)"
+  },
+  {
+    "id": "prod_pendants_1",
+    "name": "Ganesha Bas-Relief Gold Medallion",
+    "category": "pendants",
+    "spec": "22K Solid Gold • Uncut Polki Dms",
+    "badge": "Featured",
+    "image": "images/pendants/ganesha_gold_medallion.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "22K Solid Yellow Gold",
+      "Uncut Polki Diamonds",
+      "BIS 916 Certified",
+      "4.5 Grams Base"
+    ],
+    "desc": "An auspicious round medallion depicting a sacred icon in soft matte antique 22k solid yellow gold. Bordered beautifully with a micro-beaded filigree frame and sparkling traditional uncut polki diamonds drops.",
+    "shortSpec": "22K Solid Yellow Gold, Traditional Uncut Polki Diamonds (~4.5g base weight)"
+  },
+  {
+    "id": "prod_pendants_10",
+    "name": "Brilliant Halo Round Diamond Pendant",
+    "category": "pendants",
+    "spec": "18K Champagne Gold • VVS Dms",
+    "badge": "Classic",
+    "image": "images/pendants/diamond_halo_pendant.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "18K Champagne Gold",
+      "Marquise Cut VVS Diamonds",
+      "BIS 916 Certified",
+      "12.6 Grams Base"
+    ],
+    "desc": "This hand-beaten gold coin pendant features the Goddess Lakshmi in bas-relief matte 18k champagne gold, rimmed by high-brilliance round fine marquise cut vvs diamonds stones.",
+    "shortSpec": "18K Champagne Gold, Fine Marquise Cut VVS Diamonds (~12.6g base weight)"
+  },
+  {
+    "id": "prod_pendants_2",
+    "name": "Devi Oval Ruby Halo Locket",
+    "category": "pendants",
+    "spec": "22K Polished Gold • VVS Dms",
+    "badge": "Popular",
+    "image": "images/pendants/devi_ruby_locket.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "22K Antique Polished Gold",
+      "Marquise Cut VVS Diamonds",
+      "BIS 916 Certified",
+      "5.4 Grams Base"
+    ],
+    "desc": "This delicate locket is forged in certified 22k antique polished gold and houses a central natural fine marquise cut vvs diamonds drop. Opens smoothly via a hidden side hinge to store personal keepsakes.",
+    "shortSpec": "22K Antique Polished Gold, Fine Marquise Cut VVS Diamonds (~5.4g base weight)"
+  },
+  {
+    "id": "prod_pendants_3",
+    "name": "Royal Peacock Filigree Pendant",
+    "category": "pendants",
+    "spec": "18K Champagne Gold • Colombian Emr",
+    "badge": "New Arrival",
+    "image": "images/pendants/peacock_filigree_pendant.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #F9F6F0, #EFECE6)",
+    "chips": [
+      "18K Champagne Gold",
+      "Colombian Octagonal Emeralds",
+      "BIS 916 Certified",
+      "6.3 Grams Base"
+    ],
+    "desc": "Inspired by royal family crests, this solid 18k champagne gold shield pendant features micro-relief carvings accented with natural VVS colombian octagonal emeralds. A highly personalized daily luxury.",
+    "shortSpec": "18K Champagne Gold, Colombian Octagonal Emeralds (~6.3g base weight)"
+  },
+  {
+    "id": "prod_pendants_4",
+    "name": "Lakshmi Coin Sacred Medallion",
+    "category": "pendants",
+    "spec": "950 Platinum • South Sea Prls",
+    "badge": "Exclusive",
+    "image": "images/pendants/lakshmi_sacred_medallion.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF5F5, #F0E6E6)",
+    "chips": [
+      "Premium 950 Platinum",
+      "White South Sea Pearls",
+      "BIS 916 Certified",
+      "7.2 Grams Base"
+    ],
+    "desc": "A stunning geometric pendant showcasing a brilliant cluster of lustrous white south sea pearls claw-set in certified premium 950 platinum. Hangs elegantly to deliver a focal highlight.",
+    "shortSpec": "Premium 950 Platinum, Lustrous White South Sea Pearls (~7.2g base weight)"
+  },
+  {
+    "id": "prod_pendants_5",
+    "name": "Shiva Trishul Hand-Carved Pendant",
+    "category": "pendants",
+    "spec": "22K Matte Gold • Uncut Polki Dms",
+    "badge": "Best Seller",
+    "image": "images/pendants/shiva_trishul_pendant.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "22K Temple Matte Gold",
+      "Uncut Polki Diamonds",
+      "BIS 916 Certified",
+      "8.1 Grams Base"
+    ],
+    "desc": "This hand-beaten gold coin pendant features the Goddess Lakshmi in bas-relief matte 22k temple matte gold, rimmed by high-brilliance round traditional uncut polki diamonds stones.",
+    "shortSpec": "22K Temple Matte Gold, Traditional Uncut Polki Diamonds (~8.1g base weight)"
+  },
+  {
+    "id": "prod_pendants_6",
+    "name": "Lotus Bloom Pink Enamel Pendant",
+    "category": "pendants",
+    "spec": "18K White Gold • VVS Dms",
+    "badge": "Artisan Choice",
+    "image": "images/pendants/lotus_enamel_pendant.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "18K Elegant White Gold",
+      "Marquise Cut VVS Diamonds",
+      "BIS 916 Certified",
+      "9.0 Grams Base"
+    ],
+    "desc": "An auspicious round medallion depicting a sacred icon in soft matte antique 18k elegant white gold. Bordered beautifully with a micro-beaded filigree frame and sparkling fine marquise cut vvs diamonds drops.",
+    "shortSpec": "18K Elegant White Gold, Fine Marquise Cut VVS Diamonds (~9.0g base weight)"
+  },
+  {
+    "id": "prod_pendants_7",
+    "name": "Vedic Aum Sacred Sanskrit Pendant",
+    "category": "pendants",
+    "spec": "18K Rose Gold • Colombian Emr",
+    "badge": "Heritage",
+    "image": "images/pendants/vedic_aum_pendant.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #F9F6F0, #EFECE6)",
+    "chips": [
+      "18K Soft Rose Gold",
+      "Colombian Octagonal Emeralds",
+      "BIS 916 Certified",
+      "9.9 Grams Base"
+    ],
+    "desc": "This delicate locket is forged in certified 18k soft rose gold and houses a central natural colombian octagonal emeralds drop. Opens smoothly via a hidden side hinge to store personal keepsakes.",
+    "shortSpec": "18K Soft Rose Gold, Colombian Octagonal Emeralds (~9.9g base weight)"
+  },
+  {
+    "id": "prod_pendants_8",
+    "name": "Nizam Royal Emerald Halo Locket",
+    "category": "pendants",
+    "spec": "22K Solid Gold • South Sea Prls",
+    "badge": null,
+    "image": "images/pendants/nizam_emerald_locket.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF5F5, #F0E6E6)",
+    "chips": [
+      "22K Solid Yellow Gold",
+      "White South Sea Pearls",
+      "BIS 916 Certified",
+      "10.8 Grams Base"
+    ],
+    "desc": "Inspired by royal family crests, this solid 22k solid yellow gold shield pendant features micro-relief carvings accented with natural VVS lustrous white south sea pearls. A highly personalized daily luxury.",
+    "shortSpec": "22K Solid Yellow Gold, Lustrous White South Sea Pearls (~10.8g base weight)"
+  },
+  {
+    "id": "prod_pendants_9",
+    "name": "Apsara Shimmering Pearl Drop Pendant",
+    "category": "pendants",
+    "spec": "22K Polished Gold • Uncut Polki Dms",
+    "badge": "Limited",
+    "image": "images/pendants/apsara_pearl_pendant.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "22K Antique Polished Gold",
+      "Uncut Polki Diamonds",
+      "BIS 916 Certified",
+      "11.7 Grams Base"
+    ],
+    "desc": "A stunning geometric pendant showcasing a brilliant cluster of traditional uncut polki diamonds claw-set in certified 22k antique polished gold. Hangs elegantly to deliver a focal highlight.",
+    "shortSpec": "22K Antique Polished Gold, Traditional Uncut Polki Diamonds (~11.7g base weight)"
+  },
+  {
+    "id": "prod_anklets_missing_1",
+    "name": "Gold anklet",
+    "category": "anklets",
+    "spec": "22K Solid Gold • Basra Pearls",
+    "badge": "New Arrival",
+    "image": "images/anklets/gold_anklet.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "22K Pure Yellow Gold",
+      "Lustrous Basra Pearls",
+      "BIS 916 Certified",
+      "15.0 Grams Base"
+    ],
+    "desc": "An absolute marvel of craftsmanship, framing gold anklet with elite hand-finishing and pristine materials. Authenticated and certified by Bharathi showroom curators.",
+    "shortSpec": "22K Solid Gold • Basra Pearls (~15.0 Grams Base)"
+  },
+  {
+    "id": "prod_nose_pins_missing_5",
+    "name": "Gold nose pin",
+    "category": "nose-pins",
+    "spec": "18K Champagne Gold • VVS Solitaire",
+    "badge": "New Arrival",
+    "image": "images/nose_pins/gold_nose_pin.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "18K Champagne Gold",
+      "Ideal Cut VVS Solitaire",
+      "BIS 916 Certified",
+      "1.2 Grams Base"
+    ],
+    "desc": "An absolute marvel of craftsmanship, framing gold nose pin with elite hand-finishing and pristine materials. Authenticated and certified by Bharathi showroom curators.",
+    "shortSpec": "18K Champagne Gold • VVS Solitaire (~1.2 Grams Base)"
+  },
+  {
+    "id": "prod_bridal_sets_missing_2",
+    "name": "Bridal set",
+    "category": "bridal-sets",
+    "spec": "18K White Gold • GIA Diamonds",
+    "badge": "New Arrival",
+    "image": "images/bridal_sets/bridal_set.png",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "18K Elegant White Gold",
+      "GIA Certified VVS Diamonds",
+      "BIS 916 Certified",
+      "85.0 Grams Base"
+    ],
+    "desc": "An absolute marvel of craftsmanship, framing bridal set with elite hand-finishing and pristine materials. Authenticated and certified by Bharathi showroom curators.",
+    "shortSpec": "18K White Gold • GIA Diamonds (~85.0 Grams Base)"
+  },
+  {
+    "id": "prod_bridal_sets_bs2",
+    "name": "Mayura Heritage Bridal Set",
+    "category": "bridal-sets",
+    "spec": "22K Solid Gold • Basra Pearls & Rubies",
+    "badge": "Featured",
+    "image": "images/bridal_sets/bs2.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "22K Antique Yellow Gold",
+      "Natural Burmese Rubies",
+      "Fine Basra Pearls",
+      "110.5 Grams Base"
+    ],
+    "desc": "A breathtaking heritage bridal creation detailing sacred peacock motifs in solid 22k gold, adorned with shimmering natural burmese rubies and cascading premium basra pearls. Truly a magnificent masterpiece for standard royal weddings.",
+    "shortSpec": "22K Solid Gold • Basra Pearls & Rubies (~110.5 Grams Base)"
+  },
+  {
+    "id": "prod_bridal_sets_bs3",
+    "name": "Kalyan Royal Diamond Bridal Choker Set",
+    "category": "bridal-sets",
+    "spec": "18K White Gold • VVS Diamonds",
+    "badge": "Classic",
+    "image": "images/bridal_sets/bs3.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "18K White Gold Base",
+      "Uncut Polki & Brilliant Diamonds",
+      "BIS 916 Hallmarked",
+      "95.2 Grams Base"
+    ],
+    "desc": "This elite diamond choker set wraps the neck in brilliant, closely set GIA certified diamonds. Perfect for modern high-society receptions and crafted to project maximum sparkle under ballroom lights.",
+    "shortSpec": "18K White Gold • VVS Diamonds (~95.2 Grams Base)"
+  },
+  {
+    "id": "prod_bridal_sets_bs4",
+    "name": "Devi Temple Antique Bridal Set",
+    "category": "bridal-sets",
+    "spec": "22K Solid Gold • Kemp Stone Accents",
+    "badge": "Popular",
+    "image": "images/bridal_sets/bs4.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #F9F6F0, #EFECE6)",
+    "chips": [
+      "22K Solid Temple Gold",
+      "Traditional Kemp Stones",
+      "Temple Carved Motifs",
+      "125.0 Grams Base"
+    ],
+    "desc": "Inspired by historical South Indian temple sculptures, this solid 22k gold set displays hand-carved divine forms surrounded by intense traditional kemp stones and premium solid gold beads.",
+    "shortSpec": "22K Solid Gold • Kemp Stone Accents (~125.0 Grams Base)"
+  },
+  {
+    "id": "prod_bridal_sets_bs5",
+    "name": "Vasundhara Polki Kundan Set",
+    "category": "bridal-sets",
+    "spec": "22K Gold Plated • Polki & Kundan Glass",
+    "badge": "Heritage",
+    "image": "images/bridal_sets/bs5.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "22K Kundan Setting",
+      "Intricate Meenakari backing",
+      "Precious Uncut Gemstones",
+      "140.0 Grams Base"
+    ],
+    "desc": "Showcasing immaculate Rajasthani Kundan settings with rich Meenakari hand-painted detailing on the back. Adorned with premium uncut polki diamonds that shimmer with deep vintage glow.",
+    "shortSpec": "22K Gold Plated • Polki & Kundan Glass (~140.0 Grams Base)"
+  },
+  {
+    "id": "prod_bridal_sets_bs6",
+    "name": "Aura Radiant Platinum Diamond Set",
+    "category": "bridal-sets",
+    "spec": "950 Platinum • Marquise Cut Diamonds",
+    "badge": "Exclusive",
+    "image": "images/bridal_sets/bs6.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "950 Pure Platinum",
+      "Marquise & Pear VVS Diamonds",
+      "GIA Certified",
+      "80.4 Grams Base"
+    ],
+    "desc": "A breathtaking high-modern premium platinum set that cascades along the collarbone. Features peerless, certified brilliant pear and marquise cut diamonds for ultimate contemporary luxury.",
+    "shortSpec": "950 Platinum • Marquise Cut Diamonds (~80.4 Grams Base)"
+  },
+  {
+    "id": "prod_bridal_sets_bs7",
+    "name": "Chidambaram Antique Nakshi Set",
+    "category": "bridal-sets",
+    "spec": "22K Solid Gold • Hand-Crafted Nakshi",
+    "badge": "Classic",
+    "image": "images/bridal_sets/bs7.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF5F5, #F0E6E6)",
+    "chips": [
+      "22K Antique Nakshi",
+      "Divine Iconography",
+      "BIS 916 Hallmarked",
+      "118.0 Grams Base"
+    ],
+    "desc": "Immaculate hand-beaten gold detailing portraying sacred celestial scenes. An antique-polished heirloom masterpiece that defines royal lineage and timeless Southern elegance.",
+    "shortSpec": "22K Solid Gold • Hand-Crafted Nakshi (~118.0 Grams Base)"
+  },
+  {
+    "id": "prod_bridal_sets_bs8",
+    "name": "Rajkumari Emerald Layered Haar Set",
+    "category": "bridal-sets",
+    "spec": "22K Solid Gold • Colombian Emerald Layers",
+    "badge": "Best Seller",
+    "image": "images/bridal_sets/bs8.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FAF8F5, #F2EFE9)",
+    "chips": [
+      "22K Gold Layers",
+      "Vibrant Colombian Emeralds",
+      "GIA Certified Gems",
+      "135.2 Grams Base"
+    ],
+    "desc": "Four rows of immaculate, hand-selected vibrant Colombian emerald beads linked by ornate 22k gold medallions. Completed with an oversized central pendant that commands absolute royal presence.",
+    "shortSpec": "22K Solid Gold • Colombian Emerald Layers (~135.2 Grams Base)"
+  },
+  {
+    "id": "prod_bridal_sets_bs9",
+    "name": "Imperial Polki Guttapusalu Set",
+    "category": "bridal-sets",
+    "spec": "22K Solid Gold • Bunches of Rice Pearls",
+    "badge": "Trending",
+    "image": "images/bridal_sets/bs9.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #F9F6F0, #EFECE6)",
+    "chips": [
+      "Heritage Guttapusalu Style",
+      "Bunches of Rice Pearls",
+      "BIS Certified 916 Gold",
+      "102.8 Grams Base"
+    ],
+    "desc": "A traditional masterpiece representing the coastal Telugu heritage. Features heavy clusters of pristine rice pearls set on a crescent-gold base accented with uncut diamonds and precious rubies.",
+    "shortSpec": "22K Solid Gold • Bunches of Rice Pearls (~102.8 Grams Base)"
+  },
+  {
+    "id": "prod_bridal_sets_bs10",
+    "name": "Valkyrie Platinum Solitaire Set",
+    "category": "bridal-sets",
+    "spec": "950 Platinum • Cushion Cut Diamonds",
+    "badge": "Exclusive",
+    "image": "images/bridal_sets/bs10.jpg",
+    "imageStyle": "transform: scale(0.95); transition: transform 0.4s ease, filter 0.4s ease;",
+    "bgStyle": "linear-gradient(135deg, #FFFFFF, #F5F5F7)",
+    "chips": [
+      "Premium 950 Platinum",
+      "Flawless Cushion Solitaires",
+      "Modern Minimalist Bridal",
+      "88.6 Grams Base"
+    ],
+    "desc": "Designed for the ultra-modern bride who demands minimalist excellence. Set in pure platinum, housing large, cushion-cut GIA-certified diamond solitaires that deliver unparalleled luxury refraction.",
+    "shortSpec": "950 Platinum • Cushion Cut Diamonds (~88.6 Grams Base)"
+  }
+];
+
+      const dynamicGrid = document.getElementById('dynamicCatalogGrid');
+
+      // State controllers for filtering, search, and sort
+      let activeCategory = 'all';
+      let searchQuery = '';
+      let activeSort = 'featured';
+      let currentProducts = [];
+
+      const buildChipsHtml = (chips) => {
+        return chips.slice(0, 2).map(chip => `<span class="spec-chip">${chip}</span>`).join('');
+      };
+
+      const parseWeight = (str) => {
+        if (!str) return 0;
+        const match = str.match(/([0-9.]+)\s*(?:Gram|g)/i);
+        return match ? parseFloat(match[1]) : 0;
+      };
+
+      const filterAndSortCatalog = () => {
+        let filtered = [...currentProducts];
+
+        // 1. Category Tab Filter
+        if (activeCategory !== 'all') {
+          filtered = filtered.filter(p => p.category === activeCategory);
+        }
+
+        // 2. Search Box Filter
+        if (searchQuery) {
+          filtered = filtered.filter(p => 
+            p.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+            p.spec.toLowerCase().includes(searchQuery.toLowerCase())
+          );
+        }
+
+        // 3. Sorting Dropdown Actions
+        if (activeSort === 'name-asc') {
+          filtered.sort((a, b) => a.name.localeCompare(b.name));
+        } else if (activeSort === 'name-desc') {
+          filtered.sort((a, b) => b.name.localeCompare(a.name));
+        } else if (activeSort === 'weight-asc') {
+          filtered.sort((a, b) => parseWeight(a.chips[3] || a.spec) - parseWeight(b.chips[3] || b.spec));
+        } else if (activeSort === 'weight-desc') {
+          filtered.sort((a, b) => parseWeight(b.chips[3] || b.spec) - parseWeight(a.chips[3] || a.spec));
+        }
+
+        renderGridCards(filtered);
+      };
+
+      const renderGridCards = (products) => {
+        if (!dynamicGrid) return;
+        dynamicGrid.innerHTML = ''; // Clear contents
+
+        if (products.length === 0) {
+          dynamicGrid.innerHTML = `<p class="catalog-empty-msg" style="grid-column: 1/-1; margin-top: 10%;">No masterpieces match your search criteria. Please try another filter.</p>`;
+          return;
+        }
+
+        products.forEach(prod => {
+          const card = document.createElement('div');
+          card.className = 'product-card show';
+          card.setAttribute('data-category', prod.category);
+          card.id = prod.id;
+
+          const badgeHtml = prod.badge ? `<span class="product-badge">${prod.badge}</span>` : '';
+
+          card.innerHTML = `
+            <div class="product-img-container" style="${prod.bgStyle || ''}">
+              ${badgeHtml}
+              <img src="${prod.image}" alt="${prod.name}" class="product-card-img" loading="lazy">
+            </div>
+            <div class="product-info">
+              <div class="product-meta">
+                <span class="product-category">${prod.category.replace('-', ' ')}</span>
+                <span class="product-spec">${prod.spec}</span>
+              </div>
+              <h3>${prod.name}</h3>
+              
+              <div class="product-specs-chips">
+                ${buildChipsHtml(prod.chips || [])}
+              </div>
+
+              <div class="card-action-bar">
+                <span class="price-poa">Price Upon Request</span>
+                <span class="card-inquiry-link product-inquiry-btn" data-product-name="${prod.name}" data-product-spec="${prod.spec}">Inquire Instantly</span>
+              </div>
+            </div>
+          `;
+          dynamicGrid.appendChild(card);
+        });
+      };
+
+      const loadCatalogData = async () => {
+        if (!dynamicGrid) return;
+        try {
+          const response = await fetch('products.json');
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const data = await response.json();
+          currentProducts = data;
+        } catch (err) {
+          console.warn("Catalog Fallback dataset loaded.", err);
+          currentProducts = fallbackProducts;
+        }
+        filterAndSortCatalog();
+      };
+
+      // Trigger catalog hydration
+      loadCatalogData();
+
+      // === 5. CATEGORIES FILTERING INTERACTION ===
+      function initializeFilterHandlers() {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        if (filterBtns.length > 0) {
+          filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+              filterBtns.forEach(b => b.classList.remove('active'));
+              btn.classList.add('active');
+
+              // Smoothly scroll horizontal category pill into center focus
+              btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+
+              activeCategory = btn.getAttribute('data-filter');
+              filterAndSortCatalog();
+            });
+          });
         }
       }
+      initializeFilterHandlers();
+
+      // === 6. SEARCH & SORT INTERACTION HANDLERS ===
+      const searchInput = document.getElementById('catalogSearchInput');
+      const sortSelect = document.getElementById('catalogSortSelect');
+
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          searchQuery = e.target.value.trim();
+          filterAndSortCatalog();
+        });
+      }
+
+      if (sortSelect) {
+        sortSelect.addEventListener('change', (e) => {
+          activeSort = e.target.value;
+          filterAndSortCatalog();
+        });
+      }
+
+      function processUrlParams() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const filter = urlParams.get('filter');
+        if (filter) {
+          const targetBtn = document.querySelector(`.filter-btn[data-filter="${filter}"]`);
+          if (targetBtn) {
+            targetBtn.click();
+          }
+        }
+      }
+
+      // === 7. EVENT-DELEGATED WHATSAPP INQUIRY OVERLAY ===
+      document.body.addEventListener('click', (e) => {
+        const button = e.target.closest('.product-inquiry-btn');
+        if (!button) return;
+
+        e.preventDefault();
+        const productName = button.getAttribute('data-product-name');
+        const productSpec = button.getAttribute('data-product-spec') || '';
+
+        const whatsappBaseUrl = 'https://wa.me/';
+        const whatsappPhoneNumber = '919999999999';
+
+        let message = `Hello Bharathi Jewellers! I am visiting your premium catalog website and would love to inquire about the following magnificent piece:\n\n`;
+        message += `✨ Jewelry Item: *${productName}*\n`;
+        if (productSpec) {
+          message += `⚖️ Specification: _${productSpec}_\n`;
+        }
+        message += `\nCould you please share details regarding pricing, current gold rates, and availability at the showroom? Thank you!`;
+
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = `${whatsappBaseUrl}${whatsappPhoneNumber}?text=${encodedMessage}`;
+        window.open(whatsappUrl, '_blank');
+      });
+
     });
   </script>
 </body>
