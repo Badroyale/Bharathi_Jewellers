@@ -1,5 +1,5 @@
 /**
- * BHARATHI JEWELLERS - Core Premium Interactive Script
+ * SRI NARAYANA JEWELLERS - Core Premium Interactive Script
  * Features:
  * 1. Sticky Frosted Header with scroll transition
  * 2. Mobile Hamburger Toggle Menu with slide drawer closing on tap
@@ -1448,7 +1448,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const whatsappBaseUrl = 'https://wa.me/';
     const whatsappPhoneNumber = '919999999999'; // Unified official representative WhatsApp number
 
-    let message = `Hello Bharathi Jewellers! I am visiting your premium catalog website and would love to inquire about the following magnificent piece:\n\n`;
+    let message = `Hello Sri Narayana Jewellers! I am visiting your premium catalog website and would love to inquire about the following magnificent piece:\n\n`;
     message += `✨ Jewelry Item: *${productName}*\n`;
     if (productSpec) {
       message += `⚖️ Specification: _${productSpec}_\n`;
